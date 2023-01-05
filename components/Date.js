@@ -7,13 +7,14 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 
 
-const Time = styled.time`
-  color: ${props => props.theme.colors.plum};
-`;
+const Time = styled.time(props => ({
+  color: props.theme.colors.grey,
+  ...props.styles,
+}));
 
-export const Date = ({ date }) => {
+export const Date = ({ date, styles }) => {
   return (
-    <Time datetime={date}>
+    <Time datetime={date} styles={styles}>
       {dateFormatter.format(date)}
     </Time>);
 };

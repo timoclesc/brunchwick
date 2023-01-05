@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const Para = styled.p(props => ({
-  marginBlockEnd: '1rem',
+  marginBlockEnd: props.theme.spacers.sm,
   fontFamily: props.theme.fonts.serif,
   fontWeight: 300,
   lineHeight: 1.5,
-  fontSize: props.theme.sizes.md,
+  fontSize: props.theme.sizes.sm,
   ...props.styles,
 
   ['&:last-child']: {

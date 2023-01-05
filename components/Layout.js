@@ -10,7 +10,7 @@ export const Layout = ({
   children,
 }) => {
   return (
-    <div className="text-slate-700">
+    <div>
       <Header
         withProfile={withProfile}
         withDivider={withHeaderDivider}

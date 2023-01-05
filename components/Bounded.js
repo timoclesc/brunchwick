@@ -1,14 +1,31 @@
 import styled from 'styled-components';
 
-const Outer = styled.div`
-  padding: 3rem 2rem;
-`;
+const Outer = styled.div(props => ({
+  padding: '3rem 2rem',
+  ...props.styles
+}));
 
-const Inner = styled.div`
-  max-width: ${props => props.theme.layout.maxWidth};
-  margin: 0 auto;
-  text-align: ${props => props.align}
-`;
+const Inner = styled.div(props => {
+  var maxWidth;
+
+  switch (props.size) {
+    case "widest":
+      maxWidth = props.theme.layout.maxWidthLg;
+      break;
+    case "base":
+    default:
+      maxWidth = props.theme.layout.maxWidthSm;
+      break;
+  }
+
+  return {
+    maxWidth: maxWidth,
+    margin: '0 auto',
+    textAlign: props.align,
+    ...props.styles
+  }
+});
+
 export const Bounded = ({
   as = 'section',
   size = 'base',
@@ -18,8 +35,8 @@ export const Bounded = ({
   innerStyles,
 }) => {
   return (
-    <Outer as={as}>
-      <Inner align={align}>
+    <Outer as={as} styles={wrapperStyles}>
+      <Inner align={align} styles={innerStyles} size={size}>
         {children}
       </Inner>
     </Outer >

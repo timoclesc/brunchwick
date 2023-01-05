@@ -7,36 +7,13 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { Bounded } from "../../components/Bounded";
 import { Heading } from "../../components/Heading";
+import { ArticleList } from "../../components/ArticleList";
+import { Article } from "../../components/Article";
 import { Date } from "../../components/Date";
 import { HorizontalDivider } from "../../components/HorizontalDivider";
 import { RichText } from "../../components/RichText";
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-});
-
-const LatestArticle = ({ article }) => {
-  const date = prismicH.asDate(
-    article.data.publishDate || article.first_publication_date
-  );
-
-  return (
-    <li>
-      <h1 className="mb-3 text-3xl font-semibold tracking-tighter text-slate-800 md:text-4xl">
-        <PrismicLink document={article}>
-          <PrismicText field={article.data.title} />
-        </PrismicLink>
-      </h1>
-      <p className="font-serif italic tracking-tighter text-slate-500">
-        {dateFormatter.format(date)}
-      </p>
-    </li>
-  );
-};
-
-const Article = ({ article, latestArticles, navigation, settings }) => {
+const ArticlePage = ({ article, latestArticles, navigation, settings }) => {
   const date = prismicH.asDate(
     article.data.publishDate || article.first_publication_date
   );
@@ -54,7 +31,7 @@ const Article = ({ article, latestArticles, navigation, settings }) => {
           {prismicH.asText(settings.data.name)}
         </title>
       </Head>
-      <Bounded align="center">
+      <Bounded as="div" align="center" wrapperStyles={{ paddingBlock: 0 }}>
         <PrismicLink
           href="/"
           className="font-semibold tracking-tight text-slate-400"
@@ -70,18 +47,18 @@ const Article = ({ article, latestArticles, navigation, settings }) => {
         <SliceZone slices={article.data.slices} components={components} />
       </article>
       {latestArticles.length > 0 && (
-        <Bounded>
+        <Bounded size="widest">
           <div className="grid grid-cols-1 justify-items-center gap-16 md:gap-24">
-            <HorizontalDivider />
+            <HorizontalDivider width='100%' />
             <div className="w-full">
               <Heading size="2xl" className="mb-10">
                 Latest articles
               </Heading>
-              <ul className="grid grid-cols-1 gap-12">
+              <ArticleList columns={2}>
                 {latestArticles.map((article) => (
-                  <LatestArticle key={article.id} article={article} />
+                  <Article key={article.id} article={article} type="compact" />
                 ))}
-              </ul>
+              </ArticleList>
             </div>
           </div>
         </Bounded>
@@ -90,14 +67,14 @@ const Article = ({ article, latestArticles, navigation, settings }) => {
   );
 };
 
-export default Article;
+export default ArticlePage;
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
   const article = await client.getByUID("article", params.uid);
   const latestArticles = await client.getAllByType("article", {
-    limit: 3,
+    limit: 4,
     orderings: [
       { field: "my.article.publishDate", direction: "desc" },
       { field: "document.first_publication_date", direction: "desc" },

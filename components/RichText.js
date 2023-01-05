@@ -9,12 +9,37 @@ const Strong = styled.strong`
 `;
 
 const Ol = styled.ol`
-  margin-block-end: 3.5rem;
+  margin-block-end: ${props => props.theme.spacers.xlg};
   padding-inline-start: 1rem;
 
   & li:last-child {
     padding-block-end: 0
   }
+`;
+
+const Ul = styled.ul`
+  margin-block-end: ${props => props.theme.spacers.xlg};
+  padding-inline-start: 1rem;
+
+  & li:last-child {
+    padding-block-end: 0
+  }
+`;
+
+const Li = styled.li`
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const Pre = styled.pre`
+  padding: 2rem;
+  background-color: ${props => props.theme.color.lightGrey};
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  margin-block-end: ${props => props.theme.spacers.xlg};
 `;
 
 export const richTextComponents = {
@@ -27,13 +52,13 @@ export const richTextComponents = {
     <Ol>{children}</Ol>
   ),
   oListItem: ({ children }) => (
-    <li className="mb-1 list-decimal pl-1 last:mb-0 md:pl-2">{children}</li>
+    <Li>{children}</Li>
   ),
   list: ({ children }) => (
-    <ul className="mb-7 pl-4 last:mb-0 md:pl-6">{children}</ul>
+    <Ul>{children}</Ul>
   ),
   listItem: ({ children }) => (
-    <li className="mb-1 list-disc pl-1 last:mb-0 md:pl-2">{children}</li>
+    <Li>{children}</Li>
   ),
   preformatted: ({ children }) => (
     <pre className="mb-7 rounded bg-slate-100 p-4 text-sm last:mb-0 md:p-8 md:text-lg">

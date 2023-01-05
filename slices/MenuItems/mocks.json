@@ -1,0 +1,63 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Wednesday Brunch deal",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Cillum quis anim duis tempor eiusmod quis aute laboris magna occaecat aute cupidatat enim excepteur proident."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "name",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Long Black",
+              "type": "Text"
+            }
+          ],
+          [
+            "price",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "69",
+              "type": "Number"
+            }
+          ],
+          [
+            "rating",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "73",
+              "type": "Number"
+            }
+          ],
+          [
+            "review",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "problem",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

@@ -30,6 +30,9 @@
           "patternType": "HEADING",
           "blocks": 1
         }
+      },
+      "tags": {
+        "content": "Brunswick, Vegan, Coffee"
       }
     },
     "settings": {
@@ -109,6 +112,21 @@
     "ContactForm": {
       "default": {
         "primary": {}
+      }
+    },
+    "MenuItem": {},
+    "MenuItems": {
+      "default": {
+        "primary": {
+          "title": {
+            "content": "Wednesday Brunch deal"
+          }
+        },
+        "items": {
+          "name": {
+            "content": "Long Black"
+          }
+        }
       }
     }
   }
