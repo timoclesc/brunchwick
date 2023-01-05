@@ -1,0 +1,21 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "molecular"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Traffic"
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}
