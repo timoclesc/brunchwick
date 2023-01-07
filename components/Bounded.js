@@ -1,14 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Outer = styled.div(props => ({
-  padding: '3rem 2rem',
-  ...props.styles
+const Outer = styled.div((props) => ({
+  padding: "3rem 2rem",
+  ...props.styles,
 }));
 
-const Inner = styled.div(props => {
+const Inner = styled.div((props) => {
   var maxWidth;
 
   switch (props.size) {
+    case "fullbleed":
+      maxWidth = props.theme.layout.maxWidthXlg;
+      break;
     case "widest":
       maxWidth = props.theme.layout.maxWidthLg;
       break;
@@ -20,16 +23,16 @@ const Inner = styled.div(props => {
 
   return {
     maxWidth: maxWidth,
-    margin: '0 auto',
+    margin: "0 auto",
     textAlign: props.align,
-    ...props.styles
-  }
+    ...props.styles,
+  };
 });
 
 export const Bounded = ({
-  as = 'section',
-  size = 'base',
-  align = 'left',
+  as = "section",
+  size = "base",
+  align = "left",
   children,
   wrapperStyles,
   innerStyles,
@@ -39,6 +42,6 @@ export const Bounded = ({
       <Inner align={align} styles={innerStyles} size={size}>
         {children}
       </Inner>
-    </Outer >
+    </Outer>
   );
 };

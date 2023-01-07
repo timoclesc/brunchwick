@@ -4,8 +4,8 @@ import { PrismicNextImage } from "@prismicio/next";
 
 import { Heading } from "./Heading";
 
-import styled from 'styled-components';
-import { theme } from '../constants/Theme';
+import styled from "styled-components";
+import { theme } from "../constants/Theme";
 
 import { Paragraph } from "./Paragraph";
 
@@ -19,7 +19,7 @@ const ProfileImage = styled.div`
   margin: 0 auto;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 0.5rem;
   position: relative;
 `;
 
@@ -33,10 +33,10 @@ export const Profile = ({ name, description, profilePicture }) => {
               field={profilePicture}
               fill={true}
               style={{
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                inset: '0',
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                inset: "0",
               }}
             />
           )}
@@ -44,21 +44,21 @@ export const Profile = ({ name, description, profilePicture }) => {
       </PrismicLink>
       {(prismicH.isFilled.richText(name) ||
         prismicH.isFilled.richText(description)) && (
-          <div>
-            {prismicH.isFilled.richText(name) && (
-              <Heading as="h1" styles={{ marginBottom: '0.625rem' }}>
-                <PrismicLink href="/">
-                  <PrismicText field={name} />
-                </PrismicLink>
-              </Heading>
-            )}
-            {prismicH.isFilled.richText(description) && (
-              <Paragraph styles={{ color: theme.colors.charcoal }}>
-                <PrismicText field={description} />
-              </Paragraph>
-            )}
-          </div>
-        )}
+        <div>
+          {prismicH.isFilled.richText(name) && (
+            <Heading as="h1" level={1} styles={{ marginBottom: "0.625rem" }}>
+              <PrismicLink href="/">
+                <PrismicText field={name} />
+              </PrismicLink>
+            </Heading>
+          )}
+          {prismicH.isFilled.richText(description) && (
+            <Paragraph styles={{ color: theme.colors.charcoal }}>
+              <PrismicText field={description} />
+            </Paragraph>
+          )}
+        </div>
+      )}
     </Wrapper>
   );
 };

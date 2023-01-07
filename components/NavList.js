@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const List = styled.ul`
   list-style: none;
@@ -6,11 +6,13 @@ const List = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-block-end: ${props => props.marginBottom ?? props.theme.spacers.xlg};
+  margin-block-end: ${(props) => props.marginBottom ?? props.theme.spacers.xlg};
 `;
 
 export const NavList = ({ marginBottom, children }) => {
   return (
-    <List ariaRole="list" marginBottom={marginBottom}>{children}</List>
+    <List ariaRole="list" marginBottom={marginBottom}>
+      {children}
+    </List>
   );
 };

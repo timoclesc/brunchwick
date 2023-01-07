@@ -7,8 +7,6 @@ import { NavItem } from "./NavItem";
 import { NavList } from "./NavList";
 import { HorizontalDivider } from "./HorizontalDivider";
 
-
-
 export const Header = ({
   withDivider = true,
   withProfile = true,
@@ -18,7 +16,7 @@ export const Header = ({
   return (
     <Bounded as="header" align="center">
       <nav>
-        <NavList marginBottom={withProfile ? '3rem' : 0}>
+        <NavList marginBottom={withProfile ? "3rem" : 0}>
           <NavItem>
             <PrismicLink href="/">
               <PrismicText field={navigation.data.homepageLabel} />
@@ -40,7 +38,7 @@ export const Header = ({
           profilePicture={settings.data.profilePicture}
         />
       )}
-      {withDivider && <HorizontalDivider />}
+      {withDivider && <HorizontalDivider styles={{ marginTop: "3rem" }} />}
     </Bounded>
   );
 };

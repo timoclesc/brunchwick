@@ -1,5 +1,5 @@
 import * as prismicH from "@prismicio/helpers";
-import { RichText } from '../../components/RichText';
+import { RichText } from "../../components/RichText";
 
 import { Bounded } from "../../components/Bounded";
 

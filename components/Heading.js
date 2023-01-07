@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const Comp = styled.div(props => {
+const Comp = styled.div((props) => {
   var fontSize;
 
-  switch (props.as) {
-    case "h1":
+  switch (props.level) {
+    case 1:
       fontSize = props.theme.sizes.xlg;
       break;
-    case "h2":
+    case 2:
       fontSize = props.theme.sizes.lg;
       break;
     default:
@@ -21,13 +21,13 @@ const Comp = styled.div(props => {
     marginBlockEnd: props.styles?.marginBottom || props.theme.spacers.sm,
     color: props.theme.colors.black,
     fontFamily: props.theme.fonts.display,
-    ...props.styles
+    ...props.styles,
   };
 });
 
-export const Heading = ({ as = "h1", children, styles }) => {
+export const Heading = ({ as = "h1", level = 1, children, styles }) => {
   return (
-    <Comp as={as} styles={styles}>
+    <Comp as={as} level={level} styles={styles}>
       {children}
     </Comp>
   );

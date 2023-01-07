@@ -1,22 +1,29 @@
-import Head from "next/head";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../prismicio";
 import { components } from "../slices";
 import { Layout } from "../components/Layout";
+import { Banner } from "../components/Banner";
+import { AuthorProvider } from "../hooks/UseAuthors";
+import { ReviewProvider } from "../hooks/UseReviews";
 
-const Page = ({ page, navigation, settings }) => {
+const Page = ({ page, navigation, settings, authors, reviews }) => {
   return (
-    <Layout navigation={navigation} settings={settings}>
-      <Head>
-        <title>
-          {prismicH.asText(page.data.title)} |{" "}
-          {prismicH.asText(settings.data.name)}
-        </title>
-      </Head>
-      <SliceZone slices={page.data.slices} components={components} />
-    </Layout>
+    <AuthorProvider authors={authors}>
+      <ReviewProvider reviews={reviews}>
+        <Layout
+          title={prismicH.asText(page.data.title)}
+          navigation={navigation}
+          settings={settings}
+          withProfile={!page.data.hide_banner}
+          withHeaderDivider={!page.data.hide_banner}
+        >
+          <Banner title={page.data.title} />
+          <SliceZone slices={page.data.slices} components={components} />
+        </Layout>
+      </ReviewProvider>
+    </AuthorProvider>
   );
 };
 
@@ -28,12 +35,16 @@ export async function getStaticProps({ params, previewData }) {
   const page = await client.getByUID("page", params.uid);
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
+  const reviews = await client.getAllByType("article");
+  const authors = await client.getAllByType("author");
 
   return {
     props: {
       page,
       navigation,
       settings,
+      authors,
+      reviews,
     },
   };
 }

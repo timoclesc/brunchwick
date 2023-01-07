@@ -67,10 +67,28 @@
             "text": {
               "type": "SharedSlice"
             },
-            "contact_form": {
+            "menu_item": {
               "type": "SharedSlice"
             }
           }
+        }
+      }
+    },
+    "Contact Info": {
+      "google_maps": {
+        "type": "Link",
+        "config": {
+          "label": "Google Maps",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "website": {
+        "type": "Link",
+        "config": {
+          "label": "Website",
+          "placeholder": "",
+          "select": null
         }
       }
     }

@@ -52,6 +52,17 @@
           "multi": "paragraph,em,strong,hyperlink"
         }
       }
+    },
+    "Homepage": {
+      "intro": {
+        "type": "StructuredText",
+        "config": {
+          "label": "intro",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,heading2,heading3"
+        }
+      }
     }
   }
 }

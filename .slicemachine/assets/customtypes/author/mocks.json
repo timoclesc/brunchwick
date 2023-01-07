@@ -1,0 +1,48 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "work"
+  },
+  "name": {
+    "__TYPE__": "FieldContent",
+    "value": "suddenly",
+    "type": "Text"
+  },
+  "byline": {
+    "__TYPE__": "FieldContent",
+    "value": "fought",
+    "type": "Text"
+  },
+  "profile": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+      "width": 4016,
+      "height": 6016
+    },
+    "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+    "width": 4016,
+    "height": 6016,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "bio": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Amet exercitation irure cupidatat ut."
+        }
+      }
+    ]
+  }
+}

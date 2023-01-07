@@ -35,10 +35,21 @@
             "text": {
               "type": "SharedSlice"
             },
-            "contact_form": {
+            "article_list": {
               "type": "SharedSlice"
             }
           }
+        }
+      }
+    },
+    "Variations": {
+      "hide_banner": {
+        "type": "Boolean",
+        "config": {
+          "label": "Hide Banner",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
         }
       }
     }

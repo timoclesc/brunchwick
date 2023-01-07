@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Hr = styled.hr(props => ({
-  width: props.width ?? '50%',
+const Hr = styled.hr((props) => ({
+  width: props.width ?? "50%",
   height: 1,
-  margin: '0 auto 1rem',
+  margin: "0 auto 1rem",
   maxWidth: props.theme.layout.maxWidthSm,
   backgroundColor: props.theme.colors.grey,
+  ...props.styles,
 }));
 
 export const HorizontalDivider = ({ width, styles }) => {

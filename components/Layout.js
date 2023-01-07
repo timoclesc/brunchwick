@@ -1,7 +1,10 @@
+import Head from "next/head";
+import * as prismicH from "@prismicio/helpers";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 export const Layout = ({
+  title,
   navigation,
   settings,
   withHeaderDivider,
@@ -11,6 +14,11 @@ export const Layout = ({
 }) => {
   return (
     <div>
+      {title && (
+        <Head>
+          <title>{`${title} | ${prismicH.asText(settings.data.name)}`}</title>
+        </Head>
+      )}
       <Header
         withProfile={withProfile}
         withDivider={withHeaderDivider}
@@ -18,7 +26,8 @@ export const Layout = ({
         settings={settings}
       />
       <main>{children}</main>
-      <Footer withSignUpForm={withSignUpForm} settings={settings} />
+      {/* Email signup form permenantly disabled */}
+      <Footer withSignUpForm={false && withSignUpForm} settings={settings} />
     </div>
   );
 };

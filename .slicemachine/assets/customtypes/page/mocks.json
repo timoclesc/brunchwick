@@ -1,7 +1,7 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "molecular"
+    "value": "desk"
   },
   "title": {
     "__TYPE__": "StructuredTextContent",
@@ -9,13 +9,163 @@
       {
         "type": "heading1",
         "content": {
-          "text": "Traffic"
+          "text": "Mouth"
         }
       }
     ]
   },
   "slices": {
     "__TYPE__": "SliceContentType",
-    "value": []
+    "value": [
+      {
+        "key": "image$18bc1e1b-7a6e-48fd-bf6c-4e36d4bcd221",
+        "name": "image",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+                "width": 3500,
+                "height": 2338
+              },
+              "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+              "width": 3500,
+              "height": 2338,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "caption": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Adipisicing laboris laboris adipisicing laboris elit laborum proident ea ullamco sit cupidatat sit."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "quote$b0ef8346-5bcd-4e8d-ac3f-f73aa7a23f44",
+        "name": "quote",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "quote": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Disappear"
+                  }
+                }
+              ]
+            },
+            "source": {
+              "__TYPE__": "FieldContent",
+              "value": "inside",
+              "type": "Text"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "text$26377d56-e41a-434a-af8e-2d2282847ca9",
+        "name": "text",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "text": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Consectetur excepteur deserunt consectetur magna dolor est excepteur cillum aute laborum veniam sit Lorem magna nisi."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "article_list$ea3841b0-31d4-42d0-9e00-88be07b78386",
+        "name": "article_list",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Difficulty"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Non veniam labore officia est esse esse nisi id consectetur et aliquip."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "hide_banner": {
+    "__TYPE__": "BooleanContent",
+    "value": false
   }
 }

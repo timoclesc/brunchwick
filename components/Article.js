@@ -1,12 +1,12 @@
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import * as prismicH from "@prismicio/helpers";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import { Heading } from "../components/Heading";
 import { Date } from "../components/Date";
+import { Tags } from "../components/Tags";
 import { Paragraph } from "./Paragraph";
-
 
 const findFirstImage = (slices) => {
   const imageSlice = slices.find((slice) => slice.slice_type === "image");
@@ -32,9 +32,17 @@ const getExcerpt = (slices) => {
 };
 
 const ArticleGrid = styled.li`
-  display: ${props => props.type === 'compact' ? 'block' : 'grid'};
-  grid-template-columns: ${props => props.hasFeaturedImage ? '1fr 4fr' : '4fr 1fr'};
-  gap: ${props => props.theme.spacers.md};
+  display: grid;
+  gap: ${(props) => props.theme.spacers.md};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
+    grid-template-columns: ${(props) =>
+      props.variant === "compact"
+        ? "1fr"
+        : props.hasFeaturedImage
+        ? "1fr 4fr"
+        : "1fr"};
+  }
 `;
 
 const ArticleContent = styled.div`
@@ -45,15 +53,25 @@ const ArticleContent = styled.div`
 
 const Thumbnail = styled.div`
   width: 100%;
-  max-width: 14rem;
   aspect-ratio: 1;
   position: relative;
   border-radius: 0.5rem;
   overflow: hidden;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}px) {
+    max-width: ${(props) => (props.variant === "compact" ? "14rem" : "auto")};
+  }
 `;
 
+const Meta = styled.div`
+  display: ${(props) => (props.variant === "default" ? "flex" : "grid")};
+  gap: ${(props) => props.theme.spacers.xs};
+  justify-content: space-between;
+  order: ${(props) => (props.variant === "compact" ? "auto" : "-1")};
+  margin-block-end: ${(props) => props.theme.spacers.xs};
+`;
 
-export const Article = ({ article, type = 'full' }) => {
+export const Article = ({ article, variant = "deafult" }) => {
   const featuredImage =
     (prismicH.isFilled.image(article.data.featuredImage) &&
       article.data.featuredImage) ||
@@ -63,38 +81,40 @@ export const Article = ({ article, type = 'full' }) => {
   );
   const excerpt = article.data.excerpt ?? getExcerpt(article.data.slices);
 
+  const tags = article.data.tags;
+
   return (
-    <ArticleGrid hasFeaturedImage={featuredImage} type={type}>
-      {
-        prismicH.isFilled.image(featuredImage) && type === 'full' &&
+    <ArticleGrid hasFeaturedImage={featuredImage} variant={variant}>
+      {prismicH.isFilled.image(featuredImage) && variant !== "compact" && (
         <PrismicLink document={article} tabIndex="-1">
           <Thumbnail>
             <PrismicNextImage
               field={featuredImage}
               fill={true}
               style={{
-                objectFit: 'cover',
-                position: 'absolute',
-                inset: '0',
-                width: '100%',
-                height: '100%',
+                objectFit: "cover",
+                position: "absolute",
+                inset: "0",
+                width: "100%",
+                height: "100%",
               }}
             />
           </Thumbnail>
         </PrismicLink>
-      }
+      )}
       <ArticleContent>
-        <Heading as="h2">
+        <Heading as="h3" level={variant === "compact" ? 3 : 2}>
           <PrismicLink document={article}>
             <PrismicText field={article.data.title} />
           </PrismicLink>
         </Heading>
-        {date && <Date date={date} styles={{ order: -1 }} />}
-        {excerpt && (
-          <Paragraph>
-            {excerpt}
-          </Paragraph>
+        {(date || tags) && (
+          <Meta variant={variant}>
+            {date && <Date date={date} styles={{ marginInlineEnd: "1rem" }} />}
+            {tags && <Tags tags={tags} />}
+          </Meta>
         )}
+        {excerpt && <Paragraph>{excerpt}</Paragraph>}
       </ArticleContent>
     </ArticleGrid>
   );

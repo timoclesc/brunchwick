@@ -14,7 +14,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Cillum quis anim duis tempor eiusmod quis aute laboris magna occaecat aute cupidatat enim excepteur proident."
+              "text": "Nulla esse sit Lorem. Voluptate minim non esse duis labore ad."
             }
           }
         ]
@@ -36,24 +36,71 @@
             "price",
             {
               "__TYPE__": "FieldContent",
-              "value": "69",
-              "type": "Number"
+              "type": "Number",
+              "value": "4"
             }
           ],
           [
             "rating",
             {
               "__TYPE__": "FieldContent",
-              "value": "73",
-              "type": "Number"
+              "type": "Number",
+              "value": "8.5"
             }
           ],
           [
             "review",
             {
               "__TYPE__": "FieldContent",
-              "value": "problem",
-              "type": "Text"
+              "type": "Text",
+              "value": "This tasted really good. Give me more."
+            }
+          ],
+          [
+            "reviewer",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "name",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Scrambled Eggs"
+            }
+          ],
+          [
+            "price",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Number",
+              "value": "13"
+            }
+          ],
+          [
+            "rating",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Number",
+              "value": "7"
+            }
+          ],
+          [
+            "review",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Needs more chives or hollandaise or something"
             }
           ]
         ]

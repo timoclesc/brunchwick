@@ -59,6 +59,20 @@
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
+      },
+      "intro": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "author": {
+      "bio": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     }
   },
@@ -125,6 +139,24 @@
         "items": {
           "name": {
             "content": "Long Black"
+          }
+        }
+      }
+    },
+    "ArticleList": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
           }
         }
       }

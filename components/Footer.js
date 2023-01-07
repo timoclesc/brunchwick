@@ -1,9 +1,18 @@
-import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
+
+import styled from "styled-components";
 
 import { Bounded } from "./Bounded";
 import { Heading } from "./Heading";
 import { HorizontalDivider } from "./HorizontalDivider";
+
+const FooterGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: ${(props) => props.theme.spacers.sm};
+  color: ${(props) => props.theme.colors.darkGrey};
+`;
 
 const SignUpForm = ({ settings }) => {
   return (
@@ -19,7 +28,7 @@ const SignUpForm = ({ settings }) => {
               field={settings.data.newsletterDescription}
               components={{
                 heading1: ({ children }) => (
-                  <Heading as="h2" className="mb-4 last:mb-0">
+                  <Heading as="h2" level={2}>
                     {children}
                   </Heading>
                 ),
@@ -64,16 +73,15 @@ const SignUpForm = ({ settings }) => {
 export const Footer = ({ withSignUpForm = true, settings }) => {
   return (
     <Bounded as="footer" align="center">
-      <div className="grid grid-cols-1 justify-items-center gap-24">
+      <FooterGrid>
         <HorizontalDivider />
+        <span>brunchwick.club | © 2023</span>
         {withSignUpForm && <SignUpForm settings={settings} />}
-        <div className="mx-auto w-full max-w-3xl text-center text-xs font-semibold tracking-tight text-slate-500">
-          Proudly published using{" "}
-          <PrismicLink href="https://prismic.io" className="text-slate-700">
-            Prismic
-          </PrismicLink>
-        </div>
-      </div>
+        <span>
+          We would like to acknowledge the Wurundjeri people of the Kulin Nation
+          who are the traditional custodians of the Brunswick area.
+        </span>
+      </FooterGrid>
     </Bounded>
   );
 };
