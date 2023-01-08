@@ -7,13 +7,16 @@ import { Layout } from "../components/Layout";
 import { Banner } from "../components/Banner";
 import { AuthorProvider } from "../hooks/UseAuthors";
 import { ReviewProvider } from "../hooks/UseReviews";
+import { getExcerpt } from 'helpers';
 
 const Page = ({ page, navigation, settings, authors, reviews }) => {
+  const excerpt = getExcerpt(page.data.slices);
   return (
     <AuthorProvider authors={authors}>
       <ReviewProvider reviews={reviews}>
         <Layout
           title={prismicH.asText(page.data.title)}
+          description={excerpt}
           navigation={navigation}
           settings={settings}
           withProfile={!page.data.hide_banner}

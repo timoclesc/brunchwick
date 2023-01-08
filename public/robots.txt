@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://brunchwick.club
+
+# Sitemaps
+Sitemap: https://brunchwick.club/sitemap.xml

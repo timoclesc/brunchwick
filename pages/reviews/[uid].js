@@ -12,6 +12,7 @@ import { HorizontalDivider } from "../../components/HorizontalDivider";
 import { Banner } from "../../components/Banner";
 import { AuthorProvider } from "../../hooks/UseAuthors";
 import { ContactInfo } from "../../components/ContactInfo";
+import { findFirstImage } from '/helpers'
 
 const ArticlePage = ({
   article,
@@ -24,9 +25,16 @@ const ArticlePage = ({
     article.data.publishDate || article.first_publication_date
   );
 
+  const featuredImage =
+    (prismicH.isFilled.image(article.data.featuredImage) &&
+      article.data.featuredImage) ||
+    findFirstImage(article.data.slices);
+
   return (
     <Layout
       title={prismicH.asText(article.data.title)}
+      description={article.data.excerpt}
+      tileImage={featuredImage}
       withHeaderDivider={false}
       withProfile={false}
       navigation={navigation}

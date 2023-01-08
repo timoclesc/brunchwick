@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Bounded } from "./Bounded";
 import { Heading } from "./Heading";
 import { HorizontalDivider } from "./HorizontalDivider";
+import Link from "next/link";
 
 const FooterGrid = styled.div`
   display: grid;
@@ -75,7 +76,7 @@ export const Footer = ({ withSignUpForm = true, settings }) => {
     <Bounded as="footer" align="center">
       <FooterGrid>
         <HorizontalDivider />
-        <span>brunchwick.club | © 2023</span>
+        <span><Link href="/">brunchwick.club</Link> | <a href="https://www.instagram.com/brunchwick.club/">instagram</a> | © 2023</span>
         {withSignUpForm && <SignUpForm settings={settings} />}
         <span>
           We would like to acknowledge the Wurundjeri people of the Kulin Nation

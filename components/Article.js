@@ -7,29 +7,7 @@ import { Heading } from "../components/Heading";
 import { Date } from "../components/Date";
 import { Tags } from "../components/Tags";
 import { Paragraph } from "./Paragraph";
-
-const findFirstImage = (slices) => {
-  const imageSlice = slices.find((slice) => slice.slice_type === "image");
-
-  if (imageSlice && prismicH.isFilled.image(imageSlice.primary.image)) {
-    return imageSlice.primary.image;
-  }
-};
-
-const getExcerpt = (slices) => {
-  const text = slices
-    .filter((slice) => slice.slice_type === "text")
-    .map((slice) => prismicH.asText(slice.primary.text))
-    .join(" ");
-
-  const excerpt = text.substring(0, 300);
-
-  if (text.length > 300) {
-    return excerpt.substring(0, excerpt.lastIndexOf(" ")) + "…";
-  } else {
-    return excerpt;
-  }
-};
+import { findFirstImage, getExcerpt } from '/helpers';
 
 const ArticleGrid = styled.li`
   display: grid;
@@ -37,9 +15,9 @@ const ArticleGrid = styled.li`
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     grid-template-columns: ${(props) =>
-      props.variant === "compact"
-        ? "1fr"
-        : props.hasFeaturedImage
+    props.variant === "compact"
+      ? "1fr"
+      : props.hasFeaturedImage
         ? "1fr 4fr"
         : "1fr"};
   }

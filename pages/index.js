@@ -13,6 +13,8 @@ import { Heading } from "../components/Heading";
 const Index = ({ articles, navigation, settings }) => {
   return (
     <Layout
+      description={'Your one-stop-shop for where to eat and drink in Brunswick, Melbourne.'}
+      tileImage={settings.data.profilePicture}
       withHeaderDivider={false}
       navigation={navigation}
       settings={settings}
