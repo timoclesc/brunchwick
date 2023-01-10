@@ -12,7 +12,7 @@ import { HorizontalDivider } from "../../components/HorizontalDivider";
 import { Banner } from "../../components/Banner";
 import { AuthorProvider } from "../../hooks/UseAuthors";
 import { ContactInfo } from "../../components/ContactInfo";
-import { findFirstImage } from '/helpers'
+import { findFirstImage } from "/helpers";
 
 const ArticlePage = ({
   article,

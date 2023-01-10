@@ -4,8 +4,7 @@ import { PrismicNextImage } from "@prismicio/next";
 
 import { Heading } from "./Heading";
 
-import styled from "styled-components";
-import { theme } from "../constants/Theme";
+import styled, { useTheme } from "styled-components";
 
 import { Paragraph } from "./Paragraph";
 
@@ -24,6 +23,8 @@ const ProfileImage = styled.div`
 `;
 
 export const Profile = ({ name, description, profilePicture }) => {
+  const theme = useTheme();
+
   return (
     <Wrapper>
       <PrismicLink href="/" tabIndex="-1">
@@ -53,7 +54,7 @@ export const Profile = ({ name, description, profilePicture }) => {
             </Heading>
           )}
           {prismicH.isFilled.richText(description) && (
-            <Paragraph styles={{ color: theme.colors.charcoal }}>
+            <Paragraph styles={{ color: theme.lightTheme.emphasisBody }}>
               <PrismicText field={description} />
             </Paragraph>
           )}

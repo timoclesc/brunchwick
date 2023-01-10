@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Comp = styled.div((props) => ({
-  color: props.theme.colors.charcoal,
+  color: props.theme.lightTheme.lightBody,
   fontStyle: "italic",
   ...props.styles,
 }));

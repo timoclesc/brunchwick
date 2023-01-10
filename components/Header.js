@@ -14,31 +14,40 @@ export const Header = ({
   settings,
 }) => {
   return (
-    <Bounded as="header" align="center">
-      <nav>
-        <NavList marginBottom={withProfile ? "3rem" : 0}>
-          <NavItem>
-            <PrismicLink href="/">
-              <PrismicText field={navigation.data.homepageLabel} />
-            </PrismicLink>
-          </NavItem>
-          {navigation.data?.links.map((item) => (
-            <NavItem key={prismicH.asText(item.label)}>
-              <PrismicLink field={item.link}>
-                <PrismicText field={item.label} />
+    <>
+      <Bounded as="header" align="center">
+        <nav>
+          <NavList marginBottom={withProfile ? "3rem" : 0}>
+            <NavItem>
+              <PrismicLink href="/">
+                <PrismicText field={navigation.data.homepageLabel} />
               </PrismicLink>
             </NavItem>
-          ))}
-        </NavList>
-      </nav>
-      {withProfile && (
-        <Profile
-          name={settings.data.name}
-          description={settings.data.description}
-          profilePicture={settings.data.profilePicture}
-        />
-      )}
-      {withDivider && <HorizontalDivider styles={{ marginTop: "3rem" }} />}
-    </Bounded>
+            {navigation.data?.links.map((item) => (
+              <NavItem key={prismicH.asText(item.label)}>
+                <PrismicLink field={item.link}>
+                  <PrismicText field={item.label} />
+                </PrismicLink>
+              </NavItem>
+            ))}
+          </NavList>
+        </nav>
+        {withProfile && (
+          <Profile
+            name={settings.data.name}
+            description={settings.data.description}
+            profilePicture={settings.data.profilePicture}
+          />
+        )}
+      </Bounded>
+      <Bounded
+        as="div"
+        align="center"
+        size="widest"
+        wrapperStyles={{ padding: 0 }}
+      >
+        {withDivider && <HorizontalDivider styles={{ marginBottom: 0 }} />}
+      </Bounded>
+    </>
   );
 };

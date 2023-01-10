@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Comp = styled.div((props) => {
   return {
-    backgroundColor: props.theme.colors.lightGrey,
+    backgroundColor: props.theme.lightTheme.cardBackground,
     borderRadius: "0.5rem",
     padding: props.theme.spacers[props.paddingSize] ?? props.theme.spacers.md,
     ...props.styles,

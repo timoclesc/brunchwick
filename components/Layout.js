@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router'
+import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
 
 import * as prismicH from "@prismicio/helpers";
 import { Header } from "./Header";
@@ -17,7 +17,9 @@ export const Layout = ({
   withSignUpForm,
   children,
 }) => {
-  const pageTitle = title ? `${title} | ${prismicH.asText(settings.data.name)}` : prismicH.asText(settings.data.name);
+  const pageTitle = title
+    ? `${title} | ${prismicH.asText(settings.data.name)}`
+    : prismicH.asText(settings.data.name);
   const router = useRouter();
 
   return (
@@ -35,20 +37,21 @@ export const Layout = ({
           url: `https://brunchwick.club${router.asPath}`,
           title: pageTitle,
           description: description,
-          type: router.asPath.includes('reviews/') ? 'article' : 'basic',
-          ...tileImage ?
-            {
-              images: [
-                {
-                  url: tileImage.url,
-                  width: tileImage.dimensions.width,
-                  height: tileImage.dimensions.height,
-                  alt: tileImage.alt,
-                  type: 'image/jpeg',
-                },
-              ]
-            } : {},
-          siteName: 'Brunchwick.club',
+          type: router.asPath.includes("reviews/") ? "article" : "basic",
+          ...(tileImage
+            ? {
+                images: [
+                  {
+                    url: tileImage.url,
+                    width: tileImage.dimensions.width,
+                    height: tileImage.dimensions.height,
+                    alt: tileImage.alt,
+                    type: "image/jpeg",
+                  },
+                ],
+              }
+            : {}),
+          siteName: "Brunchwick.club",
         }}
       />
       <Header

@@ -6,7 +6,6 @@ import { Paragraph } from "./Paragraph";
 import { AuthorLink } from "./AuthorLink";
 
 const Outer = styled.div((props) => ({
-  backgroundColor: props.theme.colors.lightGrey,
   paddingBlock: props.theme.spacers.md,
   display: "grid",
   gridTemplateColumns: "1fr",
@@ -21,10 +20,11 @@ const Meta = styled.div`
 
 const Title = styled.span`
   font-family: ${(props) => props.theme.fonts.mono};
+  color: ${(props) => props.theme.lightTheme.accent};
 `;
 
 const Author = styled.div`
-  color: ${(props) => props.theme.colors.grey};
+  color: ${(props) => props.theme.lightTheme.lightBody};
   font-style: italic;
 `;
 
@@ -36,7 +36,11 @@ export const MenuItem = ({ name, price, rating, review, reviewer }) => {
         <Currency amount={price} />
       </Meta>
       {rating && <Rating value={rating} />}
-      {review && <Paragraph styles={{ marginBlockEnd: 0 }}>{review}</Paragraph>}
+      {review && (
+        <Paragraph styles={{ display: "inline", marginBlockEnd: 0 }}>
+          {review}
+        </Paragraph>
+      )}
       {reviewer && (
         <Author>
           By <AuthorLink author={reviewer} />

@@ -9,6 +9,7 @@ import { theme } from "../constants/Theme";
 import "../styles/globals.css";
 
 import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "../components/GlobalStyles";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -19,11 +20,11 @@ export default function App({ Component, pageProps }) {
       {process.env.NODE_ENV === "development" && (
         <div
           style={{
-            background: theme.colors.cottonSeed,
+            background: theme.colors.persianRed,
             padding: "1rem",
             textAlign: "center",
             fontSize: "0.85rem",
-            color: theme.colors.black,
+            color: theme.colors.offWhite,
             textTransform: "uppercase",
           }}
         >
@@ -34,7 +35,9 @@ export default function App({ Component, pageProps }) {
       )}
       <PrismicPreview repositoryName={repositoryName}>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <GlobalStyles>
+            <Component {...pageProps} />
+          </GlobalStyles>
         </ThemeProvider>
       </PrismicPreview>
     </PrismicProvider>

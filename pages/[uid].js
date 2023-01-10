@@ -7,7 +7,7 @@ import { Layout } from "../components/Layout";
 import { Banner } from "../components/Banner";
 import { AuthorProvider } from "../hooks/UseAuthors";
 import { ReviewProvider } from "../hooks/UseReviews";
-import { getExcerpt } from 'helpers';
+import { getExcerpt } from "helpers";
 
 const Page = ({ page, navigation, settings, authors, reviews }) => {
   const excerpt = getExcerpt(page.data.slices);

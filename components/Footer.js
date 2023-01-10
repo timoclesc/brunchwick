@@ -12,7 +12,7 @@ const FooterGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${(props) => props.theme.spacers.sm};
-  color: ${(props) => props.theme.colors.darkGrey};
+  color: ${(props) => props.theme.lightTheme.body};
 `;
 
 const SignUpForm = ({ settings }) => {
@@ -76,7 +76,11 @@ export const Footer = ({ withSignUpForm = true, settings }) => {
     <Bounded as="footer" align="center">
       <FooterGrid>
         <HorizontalDivider />
-        <span><Link href="/">brunchwick.club</Link> | <a href="https://www.instagram.com/brunchwick.club/">instagram</a> | © 2023</span>
+        <span>
+          <Link href="/">brunchwick.club</Link> |{" "}
+          <a href="https://www.instagram.com/brunchwick.club/">instagram</a> | ©
+          2023
+        </span>
         {withSignUpForm && <SignUpForm settings={settings} />}
         <span>
           We would like to acknowledge the Wurundjeri people of the Kulin Nation

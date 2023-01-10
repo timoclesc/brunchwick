@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Comp = styled.div((props) => ({
   fontFamily: props.theme.fonts.mono,
-  color: props.theme.colors.charcoal,
+  color: props.theme.lightTheme.body,
   ...props.styles,
 }));
 

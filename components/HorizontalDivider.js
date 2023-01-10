@@ -5,7 +5,7 @@ const Hr = styled.hr((props) => ({
   height: 1,
   margin: "0 auto 1rem",
   maxWidth: props.theme.layout.maxWidthSm,
-  backgroundColor: props.theme.colors.grey,
+  backgroundColor: props.theme.lightTheme.cardBorder,
   ...props.styles,
 }));
 

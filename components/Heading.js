@@ -19,7 +19,7 @@ const Comp = styled.div((props) => {
     fontSize: fontSize,
     margin: 0,
     marginBlockEnd: props.styles?.marginBottom || props.theme.spacers.sm,
-    color: props.theme.colors.black,
+    color: props.theme.lightTheme.heading,
     fontFamily: props.theme.fonts.display,
     ...props.styles,
   };

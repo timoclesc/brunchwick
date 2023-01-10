@@ -18,7 +18,7 @@ const Figure = styled.figure`
 
   & figcaption {
     text-align: center;
-    color: ${(props) => props.theme.colors.charcoal};
+    color: ${(props) => props.theme.lightTheme.lightBody};
   }
 `;
 
