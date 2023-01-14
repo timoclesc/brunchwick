@@ -7,10 +7,9 @@ const TagWrapper = styled.div`
 `;
 
 export const Tags = ({ tags }) => {
-  const tagArray = tags.split(",");
   return (
     <TagWrapper>
-      {tagArray.map((tag) => (
+      {tags.map((tag) => (
         <Tag key={tag}>{tag}</Tag>
       ))}
     </TagWrapper>
