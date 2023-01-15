@@ -46,13 +46,6 @@
           "placeholder": ""
         }
       },
-      "tags": {
-        "type": "Text",
-        "config": {
-          "label": "Tags",
-          "placeholder": "Brunswick, Vegan, Coffee"
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -32,7 +32,7 @@ const Index = ({ articles, navigation, settings }) => {
         </Heading>
         <ArticleList>
           {articles.map((article) => (
-            <Article key={article.id} article={article} variant={'default'} />
+            <Article key={article.id} article={article} variant={"default"} />
           ))}
         </ArticleList>
       </Bounded>

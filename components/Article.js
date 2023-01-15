@@ -15,9 +15,9 @@ const ArticleGrid = styled.li`
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     grid-template-columns: ${(props) =>
-    props.variant === "compact"
-      ? "1fr"
-      : props.hasFeaturedImage
+      props.variant === "compact"
+        ? "1fr"
+        : props.hasFeaturedImage
         ? "1fr 4fr"
         : "1fr"};
   }
