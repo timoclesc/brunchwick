@@ -58,7 +58,7 @@ const ArticlePage = ({
         </Bounded>
         <article>
           <Banner title={article.data.title} date={date} />
-          <Bounded wrapperStyles={{ padding: 0 }}>
+          <Bounded wrapperStyles={{ paddingBlock: 0 }}>
             <ContactInfo
               googleMaps={article.data.google_maps}
               website={article.data.website}

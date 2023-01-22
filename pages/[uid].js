@@ -38,7 +38,12 @@ export async function getStaticProps({ params, previewData }) {
   const page = await client.getByUID("page", params.uid);
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
-  const reviews = await client.getAllByType("article");
+  const reviews = await client.getAllByType("article", {
+    orderings: [
+      { field: "my.article.publishDate", direction: "desc" },
+      { field: "document.first_publication_date", direction: "desc" },
+    ],
+  });
   const authors = await client.getAllByType("author");
 
   return {

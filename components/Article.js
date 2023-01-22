@@ -15,9 +15,9 @@ const ArticleGrid = styled.li`
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     grid-template-columns: ${(props) =>
-      props.variant === "compact"
-        ? "1fr"
-        : props.hasFeaturedImage
+    props.variant === "compact"
+      ? "1fr"
+      : props.hasFeaturedImage
         ? "1fr 4fr"
         : "1fr"};
   }
@@ -47,6 +47,7 @@ const Meta = styled.div`
   justify-content: space-between;
   order: ${(props) => (props.variant === "compact" ? "auto" : "-1")};
   margin-block-end: ${(props) => props.theme.spacers.xs};
+  flex-wrap: wrap;
 `;
 
 export const Article = ({ article, variant = "deafult" }) => {

@@ -6,10 +6,6 @@ const TagSpan = styled.span`
   background-color: ${(props) => props.theme.lightTheme.accent};
   color: ${(props) => props.theme.lightTheme.heading};
   border-radius: 0.5rem;
-
-  & + & {
-    margin-left: 0.5rem;
-  }
 `;
 
 export const Tag = ({ children }) => <TagSpan>{children}</TagSpan>;
