@@ -20,7 +20,7 @@
           "label": "Description",
           "placeholder": "Short description of your blog",
           "allowTargetBlank": false,
-          "single": "paragraph"
+          "single": "paragraph,em"
         }
       },
       "profilePicture": {
@@ -60,7 +60,18 @@
           "label": "intro",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,heading2,heading3"
+          "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "homepage_hero": {
+        "type": "Image",
+        "config": {
+          "label": "Homepage Hero",
+          "constraint": {
+            "width": 1548,
+            "height": 842
+          },
+          "thumbnails": []
         }
       }
     }

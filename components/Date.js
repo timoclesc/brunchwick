@@ -8,7 +8,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
 const Time = styled.time((props) => ({
   color: props.theme.lightTheme.body,
-  whiteSpace: 'nowrap',
+  whiteSpace: "nowrap",
   ...props.styles,
 }));
 

@@ -9,11 +9,9 @@ import { Footer } from "./Footer";
 export const Layout = ({
   title,
   description,
-  tileImage,
   navigation,
   settings,
-  withHeaderDivider,
-  withProfile,
+  tileImage,
   withSignUpForm,
   children,
 }) => {
@@ -27,6 +25,10 @@ export const Layout = ({
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={description} />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest"></link>
       </Head>
       <NextSeo
         title={pageTitle}
@@ -40,23 +42,21 @@ export const Layout = ({
           type: router.asPath.includes("reviews/") ? "article" : "basic",
           ...(tileImage
             ? {
-                images: [
-                  {
-                    url: tileImage.url,
-                    width: tileImage.dimensions.width,
-                    height: tileImage.dimensions.height,
-                    alt: tileImage.alt,
-                    type: "image/jpeg",
-                  },
-                ],
-              }
+              images: [
+                {
+                  url: tileImage.url,
+                  width: tileImage.dimensions.width,
+                  height: tileImage.dimensions.height,
+                  alt: tileImage.alt,
+                  type: "image/jpeg",
+                },
+              ],
+            }
             : {}),
-          siteName: "Brunchwick.club",
+          siteName: "Brunchwick",
         }}
       />
       <Header
-        withProfile={withProfile}
-        withDivider={withHeaderDivider}
         navigation={navigation}
         settings={settings}
       />

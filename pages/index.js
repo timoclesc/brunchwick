@@ -9,6 +9,7 @@ import { Article } from "../components/Article";
 import { RichText } from "../components/RichText";
 import { HorizontalDivider } from "../components/HorizontalDivider";
 import { Heading } from "../components/Heading";
+import { Hero } from "../components/Hero";
 
 const Index = ({ articles, navigation, settings }) => {
   return (
@@ -17,14 +18,18 @@ const Index = ({ articles, navigation, settings }) => {
         "Your one-stop-shop for where to eat and drink in Brunswick, Melbourne."
       }
       tileImage={settings.data.profilePicture}
-      withHeaderDivider={true}
       navigation={navigation}
       settings={settings}
     >
-      <Head>
+
+      <Head text={settings.data.intro} image={settings.data.homepage_hero}>
         <title>{prismicH.asText(settings.data.name)}</title>
       </Head>
-      <Bounded size="widest">
+      <Bounded size="fullbleed">
+        {
+          prismicH.isFilled.richText(settings.data.intro) &&
+          <Hero text={settings.data.description} image={settings.data.homepage_hero} />
+        }
         <RichText field={settings.data.intro} />
         <HorizontalDivider styles={{ marginBlock: "3rem" }} />
         <Heading as="h2" level={2} styles={{ marginBlockEnd: "2rem" }}>

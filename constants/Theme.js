@@ -52,21 +52,35 @@ export const theme = {
     xlg: "3rem",
     xxlg: "5rem",
   },
+  borderRadius: {
+    sm: "0.5rem",
+    md: "1rem",
+    lg: "2rem",
+  },
   layout: {
-    maxWidthXlg: "60rem",
-    maxWidthLg: "48rem",
-    maxWidthSm: "36rem",
+    maxWidthXlg: "100rem",
+    maxWidthLg: "80rem",
+    maxWidthSm: "60rem",
   },
   lightTheme: {
     background: Colors.lightForest,
     body: Colors.juniper,
+    heading: Colors.forest,
     lightBody: Colors.juniper,
     emphasisBody: Colors.darkForest,
-    heading: Colors.forest,
     cardBackground: Colors.white,
     cardBorder: Colors.forest,
-    accent: Colors.fire,
+    secondary: Colors.fire,
+    accent: Colors.flamingo,
+    secondaryAccent: Colors.persianRed,
     link: Colors.fire,
   },
-  darkTheme: {},
+  darkTheme: {
+    background: Colors.forest,
+    body: Colors.white,
+  },
+  animation: {
+    duration: '0.3s',
+    easing: 'ease-in-out',
+  }
 };
