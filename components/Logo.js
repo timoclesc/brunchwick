@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function Logo({ letterColor = "#faae2b", breadColor = "#00473e", ...rest }) {
   return (
@@ -23,7 +23,7 @@ function Logo({ letterColor = "#faae2b", breadColor = "#00473e", ...rest }) {
         </g>
       </g>
     </svg>
-  )
+  );
 }
 
-export default Logo
+export default Logo;

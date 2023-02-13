@@ -51,13 +51,13 @@
           "blocks": 1
         }
       },
-      "intro": {
+      "description": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
       },
-      "description": {
+      "intro": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1

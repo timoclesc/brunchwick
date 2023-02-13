@@ -7,15 +7,13 @@ import { NavList } from "./NavList";
 
 import Logo from "./Logo";
 
-export const Header = ({
-  navigation,
-}) => {
+export const Header = ({ navigation }) => {
   return (
     <>
       <Bounded as="header" align="center">
         <nav>
           <NavList>
-            <NavItem styles={{ width: '100%', paddingBlockEnd: '1rem' }}>
+            <NavItem styles={{ width: "100%", paddingBlockEnd: "1rem" }}>
               <PrismicLink href="/">
                 <Logo />
               </PrismicLink>

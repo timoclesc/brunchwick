@@ -58,7 +58,7 @@
         "type": "StructuredText",
         "config": {
           "label": "intro",
-          "placeholder": "",
+          "placeholder": "Homepage content welcoming visitors",
           "allowTargetBlank": true,
           "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
         }

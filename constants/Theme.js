@@ -80,7 +80,7 @@ export const theme = {
     body: Colors.white,
   },
   animation: {
-    duration: '0.3s',
-    easing: 'ease-in-out',
-  }
+    duration: "0.3s",
+    easing: "ease-in-out",
+  },
 };

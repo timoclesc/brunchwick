@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${(props) => props.theme.lightTheme.background};
+    background: url(/tile_background.png);
     color: ${(props) => props.theme.lightTheme.body};
   }
 
