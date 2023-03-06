@@ -11,6 +11,7 @@ import { Paragraph } from "../../components/Paragraph";
 
 const CopyContainer = styled.div`
   grid-column: 1 / -1;
+  margin-bottom: 2rem;
 `;
 
 /**
@@ -23,19 +24,19 @@ const ArticleList = ({ slice }) => {
 
   return (
     <Bounded as="section" size="widest">
-      <List columns={slice.variation === "compact" ? 2 : 1}>
-        <CopyContainer>
-          {slice.primary.title && <RichText field={slice.primary.title} />}
-          {slice.primary.description && (
-            <RichText field={slice.primary.description} />
-          )}
-        </CopyContainer>
+      <CopyContainer>
+        {slice.primary.title && <RichText field={slice.primary.title} />}
+        {slice.primary.description && (
+          <RichText field={slice.primary.description} />
+        )}
+      </CopyContainer>
+      <List>
         {reviews.length > 0 ? (
-          reviews.map((article) => (
+          reviews.map((article, index) => (
             <Article
               key={article.id}
               article={article}
-              variant={slice.variation}
+              layout={[1, 3].includes(index % 6) ? "vertical" : "horizontal"}
             />
           ))
         ) : (

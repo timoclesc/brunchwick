@@ -13,6 +13,11 @@ const FooterGrid = styled.div`
   grid-template-columns: 1fr;
   gap: ${(props) => props.theme.spacers.sm};
   color: ${(props) => props.theme.lightTheme.body};
+  justify-items: center;
+
+  span {
+    max-width: 70ch;
+  }
 `;
 
 const SignUpForm = ({ settings }) => {

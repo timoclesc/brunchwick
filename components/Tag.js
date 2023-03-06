@@ -1,11 +1,30 @@
 import styled from "styled-components";
+import Background from "./svg/tag.svg";
 
-const TagSpan = styled.span`
-  font-size: 0.75rem;
-  padding: 0.125rem 0.5rem;
-  background-color: ${(props) => props.theme.lightTheme.accent};
+const TagContainer = styled.div`
+  font-size: 1rem;
+  padding: 0.375rem 1.25rem 0.625rem;
   color: ${(props) => props.theme.lightTheme.heading};
   border-radius: 0.5rem;
+  position: relative;
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
 `;
 
-export const Tag = ({ children }) => <TagSpan>{children}</TagSpan>;
+const TextWrapper = styled.span`
+  position: relative;
+  z-index: 2;
+`;
+
+export const Tag = ({ children }) => (
+  <TagContainer>
+    <Background />
+    <TextWrapper>{children}</TextWrapper>
+  </TagContainer>
+);

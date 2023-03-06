@@ -34,22 +34,21 @@
           "thumbnails": []
         }
       },
-      "newsletterDescription": {
-        "type": "StructuredText",
+      "article_listing_page": {
+        "type": "Link",
         "config": {
-          "label": "Newsletter Description",
-          "placeholder": "Text above the sign up form",
-          "allowTargetBlank": true,
-          "multi": "heading1,paragraph,strong,em,hyperlink,list-item,o-list-item"
+          "label": "Article Listing Page",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
         }
       },
-      "newsletterDisclaimer": {
-        "type": "StructuredText",
+      "author_listing_page": {
+        "type": "Link",
         "config": {
-          "label": "Newsletter Disclaimer",
-          "placeholder": "Small text below sign up form",
-          "allowTargetBlank": true,
-          "multi": "paragraph,em,strong,hyperlink"
+          "label": "Author Listing Page",
+          "placeholder": "",
+          "select": null
         }
       }
     },

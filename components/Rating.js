@@ -8,6 +8,6 @@ const Comp = styled.div((props) => ({
 
 export const Rating = ({ value, styles, as = "span" }) => (
   <Comp as={as} styles={styles}>
-    {value} / 10
+    {Math.round(value * 100) / 100} / 10
   </Comp>
 );

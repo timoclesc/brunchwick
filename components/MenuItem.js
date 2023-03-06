@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { Rating } from "../components/Rating";
-import { Currency } from "../components/Currency";
+import { Rating } from "@/components/Rating";
+import { Currency } from "@/components/Currency";
 import { Paragraph } from "./Paragraph";
 import { AuthorLink } from "./AuthorLink";
 

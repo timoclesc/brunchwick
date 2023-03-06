@@ -1,26 +1,27 @@
 import styled from "styled-components";
 
 const Comp = styled.div((props) => {
-  var fontSize;
+  const fontSize = {
+    1: props.theme.sizes.xlg,
+    2: props.theme.sizes.lg,
+    3: props.theme.sizes.md,
+    4: props.theme.sizes.sm,
+  };
 
-  switch (props.level) {
-    case 1:
-      fontSize = props.theme.sizes.xlg;
-      break;
-    case 2:
-      fontSize = props.theme.sizes.lg;
-      break;
-    default:
-      fontSize = props.theme.sizes.md;
-      break;
-  }
+  const fontWeight = {
+    1: 700,
+    2: 700,
+    3: 400,
+    4: 400,
+  };
 
   return {
-    fontSize: fontSize,
+    fontSize: fontSize[props.level] || "2rem",
     margin: 0,
     marginBlockEnd: props.styles?.marginBottom || props.theme.spacers.sm,
     color: props.theme.lightTheme.heading,
     fontFamily: props.theme.fonts.display,
+    fontWeight: fontWeight[props.level] || 700,
     ...props.styles,
   };
 });

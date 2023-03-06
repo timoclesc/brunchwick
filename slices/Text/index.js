@@ -1,15 +1,13 @@
 import * as prismicH from "@prismicio/helpers";
 
 import { Bounded } from "../../components/Bounded";
-import { RichText } from "../../components/RichText";
+import { FeatureText } from "../../components/FeatureText";
 
 const Text = ({ slice }) => {
   return (
     <Bounded as="section">
       {prismicH.isFilled.richText(slice.primary.text) && (
-        <div>
-          <RichText field={slice.primary.text} />
-        </div>
+        <FeatureText text={slice.primary.text} svg="none" />
       )}
     </Bounded>
   );

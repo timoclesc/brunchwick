@@ -3,8 +3,9 @@ import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../prismicio";
 import { components } from "../slices";
-import { Layout } from "../components/Layout";
-import { Banner } from "../components/Banner";
+import { Layout } from "@/components/Layout";
+import { Bounded } from "@/components/Bounded";
+import { FeatureText } from "@/components/FeatureText";
 import { AuthorProvider } from "../hooks/UseAuthors";
 import { ReviewProvider } from "../hooks/UseReviews";
 import { getExcerpt } from "helpers";
@@ -22,7 +23,9 @@ const Page = ({ page, navigation, settings, authors, reviews }) => {
           withProfile={!page.data.hide_banner}
           withHeaderDivider={!page.data.hide_banner}
         >
-          <Banner title={page.data.title} />
+          <Bounded wrapperStyles={{ paddingTop: 0 }}>
+            <FeatureText heading={page.data.title} text={page.data.intro} />
+          </Bounded>
           <SliceZone slices={page.data.slices} components={components} />
         </Layout>
       </ReviewProvider>

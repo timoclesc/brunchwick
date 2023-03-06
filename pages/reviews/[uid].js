@@ -1,17 +1,18 @@
-import { PrismicLink, SliceZone } from "@prismicio/react";
+import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
-import { Layout } from "../../components/Layout";
-import { Bounded } from "../../components/Bounded";
-import { Heading } from "../../components/Heading";
-import { ArticleList } from "../../components/ArticleList";
-import { Article } from "../../components/Article";
-import { HorizontalDivider } from "../../components/HorizontalDivider";
-import { Banner } from "../../components/Banner";
+import { Layout } from "@/components/Layout";
+import { Bounded } from "@/components/Bounded";
+import { Heading } from "@/components/Heading";
+import { ArticleList } from "@/components/ArticleList";
+import { Article } from "@/components/Article";
+import { HorizontalDivider } from "@/components/HorizontalDivider";
+import { Banner } from "@/components/Banner";
+import { Button } from "@/components/Button";
 import { AuthorProvider } from "../../hooks/UseAuthors";
-import { ContactInfo } from "../../components/ContactInfo";
+import { ContactInfo } from "@/components/ContactInfo";
 import { findFirstImage } from "/helpers";
 
 const ArticlePage = ({
@@ -47,14 +48,14 @@ const ArticlePage = ({
           wrapperStyles={{ paddingBlock: 0 }}
           innerStyles={{ textAlign: "left" }}
         >
-          <PrismicLink
-            href="/reviews"
-            style={{
-              textAlign: "left",
-            }}
+          {/* Come back to this */}
+          <Button
+            as="a"
+            field={settings.data.article_listing_page}
+            isReversed={true}
           >
-            &larr; Back to reviews
-          </PrismicLink>
+            Back to reviews
+          </Button>
         </Bounded>
         <article>
           <Banner title={article.data.title} date={date} />
@@ -72,9 +73,13 @@ const ArticlePage = ({
             <Heading as="h2" level={2} styles={{ marginBlockEnd: "2rem" }}>
               Latest reviews
             </Heading>
-            <ArticleList columns={2}>
-              {latestArticles.map((article) => (
-                <Article key={article.id} article={article} variant="compact" />
+            <ArticleList>
+              {latestArticles.map((article, index) => (
+                <Article
+                  key={article.id}
+                  article={article}
+                  layout={index % 3 === 1 ? "vertical" : "horizontal"}
+                />
               ))}
             </ArticleList>
           </Bounded>
@@ -91,7 +96,7 @@ export async function getStaticProps({ params, previewData }) {
 
   const article = await client.getByUID("article", params.uid);
   const latestArticles = await client.getAllByType("article", {
-    limit: 4,
+    limit: 3,
     orderings: [
       { field: "my.article.publishDate", direction: "desc" },
       { field: "document.first_publication_date", direction: "desc" },

@@ -1,25 +1,39 @@
 import { PrismicLink, PrismicText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
 import * as prismicH from "@prismicio/helpers";
 import styled from "styled-components";
 
-import { Heading } from "../components/Heading";
-import { Date } from "../components/Date";
-import { Tags } from "../components/Tags";
-import { Paragraph } from "./Paragraph";
-import { findFirstImage, getExcerpt } from "/helpers";
+import { Heading } from "@/components/Heading";
+import { Date } from "@/components/Date";
+import { Tags } from "@/components/Tags";
+import { Currency } from "@/components/Currency";
+import { Rating } from "@/components/Rating";
+import { Paragraph } from "@/components/Paragraph";
+import { StackedImage } from "@/components/StackedImage";
+import {
+  findFirstImage,
+  getExcerpt,
+  getAverageRating,
+  getAveragePrice,
+} from "/helpers";
 
+/* 
+  Variants: vertical | horizontal
+ */
 const ArticleGrid = styled.li`
   display: grid;
-  gap: ${(props) => props.theme.spacers.md};
+  background: ${(props) => props.theme.lightTheme.cardBackground};
+  gap: ${(props) => `${props.theme.spacers.md} ${props.theme.spacers.xlg}`};
+  padding: ${(props) => props.theme.sizes.md};
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     grid-template-columns: ${(props) =>
-      props.variant === "compact"
-        ? "1fr"
-        : props.hasFeaturedImage
-        ? "1fr 4fr"
+      props.layout === "horizontal" && props.hasFeaturedImage
+        ? "5fr 4fr"
         : "1fr"};
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.xlg}px) {
+    padding: ${(props) => props.theme.sizes.xlg};
   }
 `;
 
@@ -30,27 +44,17 @@ const ArticleContent = styled.div`
 `;
 
 const Thumbnail = styled.div`
-  width: 100%;
-  aspect-ratio: 1;
-  position: relative;
   border-radius: 0.5rem;
   overflow: hidden;
+  position: relative;
+  width: 100%;
 
   @media (min-width: ${(props) => props.theme.breakpoints.lg}px) {
     max-width: ${(props) => (props.variant === "compact" ? "14rem" : "auto")};
   }
 `;
 
-const Meta = styled.div`
-  display: ${(props) => (props.variant === "default" ? "flex" : "grid")};
-  gap: ${(props) => props.theme.spacers.xs};
-  justify-content: space-between;
-  order: ${(props) => (props.variant === "compact" ? "auto" : "-1")};
-  margin-block-end: ${(props) => props.theme.spacers.xs};
-  flex-wrap: wrap;
-`;
-
-export const Article = ({ article, variant = "deafult" }) => {
+export const Article = ({ article, layout = "horizontal" }) => {
   const featuredImage =
     (prismicH.isFilled.image(article.data.featuredImage) &&
       article.data.featuredImage) ||
@@ -62,39 +66,47 @@ export const Article = ({ article, variant = "deafult" }) => {
 
   const tags = article.tags;
 
+  const rating = getAverageRating(article.data.slices);
+
+  const avgPrice = getAveragePrice(article.data.slices);
+
   return (
-    <ArticleGrid hasFeaturedImage={featuredImage} variant={variant}>
-      {prismicH.isFilled.image(featuredImage) && variant !== "compact" && (
-        <PrismicLink document={article} tabIndex="-1">
-          <Thumbnail>
-            <PrismicNextImage
-              field={featuredImage}
-              fill={true}
-              style={{
-                objectFit: "cover",
-                position: "absolute",
-                inset: "0",
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          </Thumbnail>
-        </PrismicLink>
-      )}
-      <ArticleContent>
-        <Heading as="h3" level={variant === "compact" ? 3 : 2}>
-          <PrismicLink document={article}>
-            <PrismicText field={article.data.title} />
+    <div>
+      <ArticleGrid hasFeaturedImage={featuredImage} layout={layout}>
+        {prismicH.isFilled.image(featuredImage) && (
+          <PrismicLink document={article} tabIndex="-1">
+            <Thumbnail>
+              <StackedImage image={featuredImage} />
+            </Thumbnail>
           </PrismicLink>
-        </Heading>
-        {(date || tags) && (
-          <Meta variant={variant}>
-            {date && <Date date={date} styles={{ marginInlineEnd: "1rem" }} />}
-            {tags && <Tags tags={tags} />}
-          </Meta>
         )}
-        {excerpt && <Paragraph>{excerpt}</Paragraph>}
-      </ArticleContent>
-    </ArticleGrid>
+        <ArticleContent>
+          <Heading as="h3" level={2}>
+            <PrismicLink document={article}>
+              <PrismicText field={article.data.title} />
+            </PrismicLink>
+          </Heading>
+          {date && (
+            <Date date={date} styles={{ marginInlineEnd: "1rem", order: -1 }} />
+          )}
+          {tags && (
+            <Tags tags={tags} styles={{ order: -2, marginBottom: "1rem" }} />
+          )}
+          {excerpt && <Paragraph>{excerpt}</Paragraph>}
+          {rating && (
+            <Paragraph>
+              {" "}
+              Average Rating: <Rating value={rating} />
+            </Paragraph>
+          )}
+          {avgPrice && (
+            <Paragraph>
+              {" "}
+              Average Price: <Currency amount={rating} />
+            </Paragraph>
+          )}
+        </ArticleContent>
+      </ArticleGrid>
+    </div>
   );
 };

@@ -248,6 +248,17 @@ interface PageDocumentData {
    */
   title: prismicT.TitleField;
   /**
+   * Intro field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  intro: prismicT.RichTextField;
+  /**
    * Slice Zone field in *Page*
    *
    * - **Field Type**: Slice Zone
@@ -327,27 +338,27 @@ interface SettingsDocumentData {
    */
   profilePicture: prismicT.ImageField<never>;
   /**
-   * Newsletter Description field in *Settings*
+   * Article Listing Page field in *Settings*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Text above the sign up form
-   * - **API ID Path**: settings.newsletterDescription
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.article_listing_page
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  newsletterDescription: prismicT.RichTextField;
+  article_listing_page: prismicT.LinkField;
   /**
-   * Newsletter Disclaimer field in *Settings*
+   * Author Listing Page field in *Settings*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Small text below sign up form
-   * - **API ID Path**: settings.newsletterDisclaimer
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.author_listing_page
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  newsletterDisclaimer: prismicT.RichTextField;
+  author_listing_page: prismicT.LinkField;
   /**
    * intro field in *Settings*
    *
@@ -432,51 +443,10 @@ export type ArticleListSliceDefault = prismicT.SharedSliceVariation<
   never
 >;
 /**
- * Primary content in ArticleList → Primary
- *
- */
-interface ArticleListSliceCompactPrimary {
-  /**
-   * Title field in *ArticleList → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: This is where it all begins...
-   * - **API ID Path**: article_list.primary.title
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  title: prismicT.TitleField;
-  /**
-   * Description field in *ArticleList → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A nice description of your feature
-   * - **API ID Path**: article_list.primary.description
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  description: prismicT.RichTextField;
-}
-/**
- * Compact variation for ArticleList Slice
- *
- * - **API ID**: `compact`
- * - **Description**: `ArticleList`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type ArticleListSliceCompact = prismicT.SharedSliceVariation<
-  "compact",
-  Simplify<ArticleListSliceCompactPrimary>,
-  never
->;
-/**
  * Slice variation for *ArticleList*
  *
  */
-type ArticleListSliceVariation =
-  | ArticleListSliceDefault
-  | ArticleListSliceCompact;
+type ArticleListSliceVariation = ArticleListSliceDefault;
 /**
  * ArticleList Shared Slice
  *
@@ -844,8 +814,6 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       ArticleListSliceDefaultPrimary,
       ArticleListSliceDefault,
-      ArticleListSliceCompactPrimary,
-      ArticleListSliceCompact,
       ArticleListSliceVariation,
       ArticleListSlice,
       ContactFormSliceDefault,

@@ -34,7 +34,7 @@ const AuthorPage = ({
           </title>
         </Head>
         <article>
-          <Bounded align="center">
+          <Bounded align="center" wrapperStyles={{ paddingTop: 0 }}>
             <Heading as="h1" level={1}>
               {author.data.name}
             </Heading>
@@ -61,8 +61,12 @@ const AuthorPage = ({
               Latest reviews
             </Heading>
             <ArticleList columns={2}>
-              {latestArticles.map((article) => (
-                <Article key={article.id} article={article} variant="compact" />
+              {latestArticles.map((article, index) => (
+                <Article
+                  key={article.id}
+                  article={article}
+                  layout={index % 3 === 1 ? "vertical" : "horizontal"}
+                />
               ))}
             </ArticleList>
           </Bounded>
@@ -79,7 +83,7 @@ export async function getStaticProps({ params, previewData }) {
 
   const author = await client.getByUID("author", params.uid);
   const latestArticles = await client.getAllByType("article", {
-    limit: 4,
+    limit: 3,
     orderings: [
       { field: "my.article.publishDate", direction: "desc" },
       { field: "document.first_publication_date", direction: "desc" },
