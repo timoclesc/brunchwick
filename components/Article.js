@@ -27,9 +27,9 @@ const ArticleGrid = styled.li`
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     grid-template-columns: ${(props) =>
-      props.layout === "horizontal" && props.hasFeaturedImage
-        ? "5fr 4fr"
-        : "1fr"};
+    props.layout === "horizontal" && props.hasFeaturedImage
+      ? "5fr 4fr"
+      : "1fr"};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.xlg}px) {
@@ -93,13 +93,13 @@ export const Article = ({ article, layout = "horizontal" }) => {
             <Tags tags={tags} styles={{ order: -2, marginBottom: "1rem" }} />
           )}
           {excerpt && <Paragraph>{excerpt}</Paragraph>}
-          {rating && (
+          {rating > 0 && (
             <Paragraph>
               {" "}
               Average Rating: <Rating value={rating} />
             </Paragraph>
           )}
-          {avgPrice && (
+          {avgPrice > 0 && (
             <Paragraph>
               {" "}
               Average Price: <Currency amount={rating} />

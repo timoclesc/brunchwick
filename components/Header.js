@@ -10,7 +10,7 @@ import Logo from "./Logo";
 export const Header = ({ navigation }) => {
   return (
     <>
-      <Bounded as="header" align="center">
+      <Bounded as="header" align="center" wrapperStyles={{ paddingBottom: 0 }}>
         <nav>
           <NavList>
             <NavItem styles={{ width: "100%", paddingBlockEnd: "1rem" }}>

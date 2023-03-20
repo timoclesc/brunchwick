@@ -23,7 +23,7 @@ const Index = ({ articles, navigation, settings }) => {
       <Head text={settings.data.intro} image={settings.data.homepage_hero}>
         <title>{prismicH.asText(settings.data.name)}</title>
       </Head>
-      <Bounded size="fullbleed">
+      <Bounded size="fullbleed" wrapperStyles={{ paddingTop: 0 }}>
         {prismicH.isFilled.richText(settings.data.intro) && (
           <Hero
             text={settings.data.description}
@@ -34,7 +34,6 @@ const Index = ({ articles, navigation, settings }) => {
       <Bounded size="wide">
         <FeatureText text={settings.data.intro} />
       </Bounded>
-      <Bounded size="widest"></Bounded>
       <Bounded size="fullbleed">
         <Heading as="h2" level={1} styles={{ marginBlockEnd: "2rem" }}>
           Latest reviews

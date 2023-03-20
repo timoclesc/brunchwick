@@ -2,7 +2,6 @@ import styled, { useTheme } from "styled-components";
 
 import { RichText } from "./RichText";
 import { Heading } from "./Heading";
-import { Border } from "./Border";
 
 import EmptyBaguette from "./svg/empty-baguette.svg";
 import BrandShape from "./svg/bkg-shape-2.svg";
@@ -10,7 +9,11 @@ import * as prismicH from "@prismicio/helpers";
 
 const Outer = styled.section`
   position: relative;
-  padding: 5rem;
+  padding: 2rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
+    padding: 5rem;
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.lg}px) {
     padding: 10rem;
@@ -34,7 +37,7 @@ const TextContainer = styled.div`
     background-position: 0 90%;
     background-size: 100% 10px;
     transition: ${(props) =>
-      `background-size ${props.theme.animation.easing} ${props.theme.animation.duration}`};
+    `background-size ${props.theme.animation.easing} ${props.theme.animation.duration}`};
   }
 
   em:hover {
@@ -77,17 +80,13 @@ export const FeatureText = ({ heading, text, svg = "baguette" }) => {
         }}
       />
       <BaguetteWrapper>{shapes[svg]}</BaguetteWrapper>
-      <Border
-        color={theme.lightTheme.heading}
-        styles={{ inset: "3rem", width: "auto", height: "auto" }}
-      />
       <TextContainer>
         {typeof heading === "string"
           ? prismicH.isFilled.keyText(heading) && (
-              <Heading as={"h2"} level={2}>
-                {heading}
-              </Heading>
-            )
+            <Heading as={"h2"} level={2}>
+              {heading}
+            </Heading>
+          )
           : prismicH.isFilled.richText(heading) && <RichText field={heading} />}
         <RichText field={text} />
       </TextContainer>
