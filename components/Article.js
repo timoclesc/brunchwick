@@ -102,7 +102,7 @@ export const Article = ({ article, layout = "horizontal" }) => {
           {avgPrice > 0 && (
             <Paragraph>
               {" "}
-              Average Price: <Currency amount={rating} />
+              Average Price: <Currency amount={avgPrice} />
             </Paragraph>
           )}
         </ArticleContent>

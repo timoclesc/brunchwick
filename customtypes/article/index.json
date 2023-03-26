@@ -84,6 +84,26 @@
           "select": null
         }
       }
+    },
+    "Social": {
+      "instagram_image": {
+        "type": "Image",
+        "config": {
+          "label": "Instagram Image",
+          "constraint": {
+            "width": 936,
+            "height": 936
+          },
+          "thumbnails": []
+        }
+      },
+      "instagram_text": {
+        "type": "Text",
+        "config": {
+          "label": "Instagram Text",
+          "placeholder": ""
+        }
+      }
     }
   }
 }

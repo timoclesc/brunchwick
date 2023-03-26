@@ -9,7 +9,7 @@ const Outer = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${props => props.theme.breakpoints.md}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     flex-direction: row;
   }
 `;
@@ -17,9 +17,9 @@ const Outer = styled.section`
 const HeroImage = styled.div`
   width: 100%;
   position: relative;
-  margin-bottom: -${props => props.theme.spacers.lg};
+  margin-bottom: -${(props) => props.theme.spacers.lg};
 
-  @media (min-width: ${props => props.theme.breakpoints.md}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     width: 65%;
   }
 `;
@@ -40,11 +40,11 @@ const TextBox = styled.div`
   font-family: ${(props) => props.theme.fonts.display};
   font-weight: 400;
 
-  @media (min-width: ${props => props.theme.breakpoints.sm}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.sm}px) {
     width: 80%;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.md}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     margin-left: -3rem;
     width: 50%;
   }

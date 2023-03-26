@@ -42,21 +42,6 @@ const ArticlePage = ({
       settings={settings}
     >
       <AuthorProvider authors={authors}>
-        <Bounded
-          as="div"
-          size="widest"
-          wrapperStyles={{ paddingBlock: 0 }}
-          innerStyles={{ textAlign: "left" }}
-        >
-          {/* Come back to this */}
-          <Button
-            as="a"
-            field={settings.data.article_listing_page}
-            isReversed={true}
-          >
-            Back to reviews
-          </Button>
-        </Bounded>
         <article>
           <Banner title={article.data.title} date={date} />
           <Bounded wrapperStyles={{ paddingBlock: 0 }}>
@@ -82,6 +67,21 @@ const ArticlePage = ({
                 />
               ))}
             </ArticleList>
+            <Bounded
+              as="div"
+              size="widest"
+              wrapperStyles={{ paddingBlock: 0 }}
+              innerStyles={{ textAlign: "left" }}
+            >
+              {/* Come back to this */}
+              <Button
+                as="a"
+                field={settings.data.article_listing_page}
+                isReversed={true}
+              >
+                View all reviews
+              </Button>
+            </Bounded>
           </Bounded>
         )}
       </AuthorProvider>

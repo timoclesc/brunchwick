@@ -37,7 +37,7 @@ const TextContainer = styled.div`
     background-position: 0 90%;
     background-size: 100% 10px;
     transition: ${(props) =>
-    `background-size ${props.theme.animation.easing} ${props.theme.animation.duration}`};
+      `background-size ${props.theme.animation.easing} ${props.theme.animation.duration}`};
   }
 
   em:hover {
@@ -83,10 +83,10 @@ export const FeatureText = ({ heading, text, svg = "baguette" }) => {
       <TextContainer>
         {typeof heading === "string"
           ? prismicH.isFilled.keyText(heading) && (
-            <Heading as={"h2"} level={2}>
-              {heading}
-            </Heading>
-          )
+              <Heading as={"h2"} level={2}>
+                {heading}
+              </Heading>
+            )
           : prismicH.isFilled.richText(heading) && <RichText field={heading} />}
         <RichText field={text} />
       </TextContainer>
