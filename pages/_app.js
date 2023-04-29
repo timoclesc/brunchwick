@@ -3,6 +3,7 @@ import { PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../prismicio";
 import { richTextComponents } from "../components/RichText";
+import { Analytics } from "@vercel/analytics/react";
 
 import { theme } from "../constants/Theme";
 
@@ -37,6 +38,7 @@ export default function App({ Component, pageProps }) {
         <ThemeProvider theme={theme}>
           <GlobalStyles>
             <Component {...pageProps} />
+            <Analytics />
           </GlobalStyles>
         </ThemeProvider>
       </PrismicPreview>
