@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: brunchwick.club
+Token: ca934708108f45eb812234365feb88628aa82535067833c148f1323d242f7933
