@@ -1,7 +1,7 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "parallel"
+    "value": "importance"
   },
   "title": {
     "__TYPE__": "StructuredTextContent",
@@ -9,7 +9,7 @@
       {
         "type": "heading1",
         "content": {
-          "text": "Every"
+          "text": "Brought"
         }
       }
     ]
@@ -17,24 +17,24 @@
   "publishDate": {
     "__TYPE__": "FieldContent",
     "type": "Date",
-    "value": "2013-05-20"
+    "value": "2022-11-08"
   },
   "featuredImage": {
     "__TYPE__": "ImageContent",
     "origin": {
       "id": "main",
-      "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
-      "width": 3958,
-      "height": 3958
+      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+      "width": 4172,
+      "height": 4000
     },
-    "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?rect=0%2C495%2C3958%2C2969&w=2000&h=1500",
+    "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=0%2C436%2C4172%2C3129&w=2000&h=1500",
     "width": 2000,
     "height": 1500,
     "edit": {
       "zoom": 1,
       "crop": {
         "x": 0,
-        "y": 495
+        "y": 436
       },
       "background": "transparent"
     },
@@ -42,14 +42,14 @@
   },
   "excerpt": {
     "__TYPE__": "FieldContent",
-    "value": "blood",
+    "value": "land",
     "type": "Text"
   },
   "slices": {
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "image$c3c78fac-bd7d-4d55-b93d-5a0000c2c3df",
+        "key": "image$32feceeb-4397-4ee5-ae04-3b3f8508cfbb",
         "name": "image",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -59,13 +59,13 @@
               "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
-                "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
-                "width": 3344,
-                "height": 2509
+                "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+                "width": 3168,
+                "height": 4752
               },
-              "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
-              "width": 3344,
-              "height": 2509,
+              "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+              "width": 3168,
+              "height": 4752,
               "edit": {
                 "zoom": 1,
                 "crop": {
@@ -82,7 +82,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Nostrud ipsum elit laborum ut quis in minim labore enim consectetur labore. Culpa mollit velit dolore enim aute dolor incididunt eu veniam dolor est Lorem incididunt."
+                    "text": "Lorem non ut excepteur cupidatat reprehenderit exercitation."
                   }
                 }
               ]
@@ -97,7 +97,7 @@
         }
       },
       {
-        "key": "quote$bc3c7f2a-c1f5-4461-bf9c-99e7a8ecb5f0",
+        "key": "quote$777c81b7-661f-4a19-aefd-61a48a8a405c",
         "name": "quote",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -109,14 +109,14 @@
                 {
                   "type": "heading2",
                   "content": {
-                    "text": "Eight"
+                    "text": "Claws"
                   }
                 }
               ]
             },
             "source": {
               "__TYPE__": "FieldContent",
-              "value": "cream",
+              "value": "that",
               "type": "Text"
             }
           },
@@ -129,7 +129,7 @@
         }
       },
       {
-        "key": "text$a206db3a-e7b2-492c-aa47-4997986c3caf",
+        "key": "text$fd4d512f-fe7d-45ae-b1a2-45a5728f4b4d",
         "name": "text",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -141,7 +141,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Minim occaecat dolore cupidatat officia pariatur in."
+                    "text": "Labore ipsum consequat laborum et sit veniam non esse commodo adipisicing."
                   }
                 }
               ]
@@ -156,7 +156,7 @@
         }
       },
       {
-        "key": "menu_item$acdc632c-c770-42e1-908e-c4e1ba97bf86",
+        "key": "menu_item$a95ff704-9cde-4f19-b974-bb754343d717",
         "name": "menu_item",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -164,7 +164,7 @@
           "primary": {
             "title": {
               "__TYPE__": "FieldContent",
-              "value": "worth",
+              "value": "meal",
               "type": "Text"
             },
             "description": {
@@ -173,7 +173,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Sint proident et pariatur."
+                    "text": "Labore eu magna cupidatat esse laboris labore officia ex ullamco eu dolore anim. Pariatur amet duis reprehenderit nisi excepteur occaecat ipsum in aliqua esse incididunt. Fugiat duis est enim eu consequat adipisicing incididunt anim velit officia voluptate."
                   }
                 }
               ]
@@ -187,7 +187,7 @@
                   "name",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "calm",
+                    "value": "improve",
                     "type": "Text"
                   }
                 ],
@@ -195,7 +195,7 @@
                   "price",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "0",
+                    "value": "30",
                     "type": "Number"
                   }
                 ],
@@ -203,7 +203,7 @@
                   "rating",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "18",
+                    "value": "83",
                     "type": "Number"
                   }
                 ],
@@ -211,7 +211,7 @@
                   "review",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "production",
+                    "value": "stepped",
                     "type": "Text"
                   }
                 ],
@@ -229,6 +229,71 @@
             }
           ]
         }
+      },
+      {
+        "key": "weekly_specials$1fbafc93-cd2b-4ce4-990b-3c08a8326270",
+        "name": "weekly_specials",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title_override": {
+              "__TYPE__": "FieldContent",
+              "value": "crop",
+              "type": "Text"
+            },
+            "intro_override": {
+              "__TYPE__": "FieldContent",
+              "value": "tree",
+              "type": "Text"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "day",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "adjective",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "offer",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "brave",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "price",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "8",
+                    "type": "Number"
+                  }
+                ],
+                [
+                  "description",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Nostrud commodo fugiat qui est consectetur in."
+                        }
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -236,7 +301,7 @@
     "__TYPE__": "LinkContent",
     "value": {
       "__TYPE__": "ExternalLink",
-      "url": "http://twitter.com"
+      "url": "https://slicemachine.dev"
     }
   },
   "website": {
@@ -269,7 +334,7 @@
   },
   "instagram_text": {
     "__TYPE__": "FieldContent",
-    "value": "possibly",
+    "value": "brought",
     "type": "Text"
   }
 }

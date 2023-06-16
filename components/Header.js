@@ -14,7 +14,7 @@ export const Header = ({ navigation }) => {
         <nav>
           <NavList>
             <NavItem styles={{ width: "100%", paddingBlockEnd: "1rem" }}>
-              <PrismicLink href="/">
+              <PrismicLink href="/" title={"Home"}>
                 <Logo />
               </PrismicLink>
             </NavItem>

@@ -28,10 +28,21 @@
         "config": {
           "label": "Profile Picture",
           "constraint": {
-            "width": 2000,
-            "height": 2000
+            "width": 1768,
+            "height": 960
           },
-          "thumbnails": []
+          "thumbnails": [
+            {
+              "name": "mobile",
+              "width": 642,
+              "height": 350
+            },
+            {
+              "name": "tablet",
+              "width": 1050,
+              "height": 572
+            }
+          ]
         }
       },
       "article_listing_page": {
@@ -70,7 +81,18 @@
             "width": 1548,
             "height": 842
           },
-          "thumbnails": []
+          "thumbnails": [
+            {
+              "name": "tablet",
+              "width": 1050,
+              "height": 572
+            },
+            {
+              "name": "mobile",
+              "width": 642,
+              "height": 350
+            }
+          ]
         }
       }
     }

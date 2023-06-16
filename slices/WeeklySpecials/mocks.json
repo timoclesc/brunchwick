@@ -1,0 +1,63 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title_override": {
+        "__TYPE__": "FieldContent",
+        "value": "waste",
+        "type": "Text"
+      },
+      "intro_override": {
+        "__TYPE__": "FieldContent",
+        "value": "everybody",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "day",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "war",
+              "type": "Text"
+            }
+          ],
+          [
+            "offer",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "scared",
+              "type": "Text"
+            }
+          ],
+          [
+            "price",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "53",
+              "type": "Number"
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Proident commodo et anim sunt ipsum eu officia mollit consequat cupidatat culpa tempor deserunt quis."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

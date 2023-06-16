@@ -62,6 +62,9 @@
             },
             "menu_item": {
               "type": "SharedSlice"
+            },
+            "weekly_specials": {
+              "type": "SharedSlice"
             }
           }
         }

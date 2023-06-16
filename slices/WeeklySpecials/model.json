@@ -1,0 +1,64 @@
+{
+  "id": "weekly_specials",
+  "type": "SharedSlice",
+  "name": "WeeklySpecials",
+  "description": "WeeklySpecials",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "WeeklySpecials",
+      "primary": {
+        "title_override": {
+          "type": "Text",
+          "config": {
+            "label": "Title Override",
+            "placeholder": ""
+          }
+        },
+        "intro_override": {
+          "type": "Text",
+          "config": {
+            "label": "Intro Override",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "day": {
+          "type": "Text",
+          "config": {
+            "label": "Day",
+            "placeholder": "Thursday"
+          }
+        },
+        "offer": {
+          "type": "Text",
+          "config": {
+            "label": "Offer",
+            "placeholder": "Parma and Pot"
+          }
+        },
+        "price": {
+          "type": "Number",
+          "config": {
+            "label": "Price",
+            "placeholder": "20"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "Choose from a selection etc...",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink"
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

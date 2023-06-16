@@ -35,6 +35,18 @@ export const StackedImage = ({ aspectRatio, color, variant = 1, image }) => {
     1: "1.5rem 0.5rem 1.875rem 2rem;",
   };
 
+  const customLoader = ({ _src, width }) => {
+    let url = image.url;
+
+    if (width < 768 && image?.mobile) {
+      url = image.mobile.url;
+    } else if (width < 1048 && image?.tablet) {
+      url = image.tablet.url;
+    }
+
+    return url;
+  };
+
   return (
     <Container color={color} padding={padding[variant]}>
       <Background>{shapes[variant]}</Background>
@@ -44,7 +56,13 @@ export const StackedImage = ({ aspectRatio, color, variant = 1, image }) => {
             aspectRatio || image.dimensions.width / image.dimensions.height
           }
         >
-          <PrismicNextImage field={image} fill={true} />
+          <PrismicNextImage
+            field={image}
+            fill={true}
+            priority={true}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            loader={customLoader}
+          />
         </ImageContainer>
       )}
     </Container>

@@ -27,9 +27,9 @@ const ArticleGrid = styled.li`
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}px) {
     grid-template-columns: ${(props) =>
-    props.layout === "horizontal" && props.hasFeaturedImage
-      ? "5fr 4fr"
-      : "1fr"};
+      props.layout === "horizontal" && props.hasFeaturedImage
+        ? "5fr 4fr"
+        : "1fr"};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.xlg}px) {
@@ -71,42 +71,40 @@ export const Article = ({ article, layout = "horizontal" }) => {
   const avgPrice = getAveragePrice(article.data.slices);
 
   return (
-    <div>
-      <ArticleGrid hasFeaturedImage={featuredImage} layout={layout}>
-        {prismicH.isFilled.image(featuredImage) && (
-          <PrismicLink document={article} tabIndex="-1">
-            <Thumbnail>
-              <StackedImage image={featuredImage} />
-            </Thumbnail>
+    <ArticleGrid hasFeaturedImage={featuredImage} layout={layout}>
+      {prismicH.isFilled.image(featuredImage) && (
+        <PrismicLink document={article} tabIndex="-1">
+          <Thumbnail>
+            <StackedImage image={featuredImage} />
+          </Thumbnail>
+        </PrismicLink>
+      )}
+      <ArticleContent>
+        <Heading as="h3" level={2}>
+          <PrismicLink document={article}>
+            <PrismicText field={article.data.title} />
           </PrismicLink>
+        </Heading>
+        {date && (
+          <Date date={date} styles={{ marginInlineEnd: "1rem", order: -1 }} />
         )}
-        <ArticleContent>
-          <Heading as="h3" level={2}>
-            <PrismicLink document={article}>
-              <PrismicText field={article.data.title} />
-            </PrismicLink>
-          </Heading>
-          {date && (
-            <Date date={date} styles={{ marginInlineEnd: "1rem", order: -1 }} />
-          )}
-          {tags && (
-            <Tags tags={tags} styles={{ order: -2, marginBottom: "1rem" }} />
-          )}
-          {excerpt && <Paragraph>{excerpt}</Paragraph>}
-          {rating > 0 && (
-            <Paragraph>
-              {" "}
-              Average Rating: <Rating value={rating} />
-            </Paragraph>
-          )}
-          {avgPrice > 0 && (
-            <Paragraph>
-              {" "}
-              Average Price: <Currency amount={avgPrice} />
-            </Paragraph>
-          )}
-        </ArticleContent>
-      </ArticleGrid>
-    </div>
+        {tags && (
+          <Tags tags={tags} styles={{ order: -2, marginBottom: "1rem" }} />
+        )}
+        {excerpt && <Paragraph>{excerpt}</Paragraph>}
+        {rating > 0 && (
+          <Paragraph>
+            {" "}
+            Average Rating: <Rating value={rating} />
+          </Paragraph>
+        )}
+        {avgPrice > 0 && (
+          <Paragraph>
+            {" "}
+            Average Price: <Currency amount={avgPrice} />
+          </Paragraph>
+        )}
+      </ArticleContent>
+    </ArticleGrid>
   );
 };

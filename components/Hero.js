@@ -50,8 +50,8 @@ const TextBox = styled.div`
   }
 
   em {
-    color ${(props) => props.theme.lightTheme.heading};
-    background-color ${(props) => props.theme.lightTheme.secondary};
+    color: ${(props) => props.theme.lightTheme.heading};
+    background-color: ${(props) => props.theme.lightTheme.secondary};
     font-style: normal;
   }
 `;

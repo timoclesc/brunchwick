@@ -112,7 +112,7 @@ interface ArticleDocumentData {
  * Slice for *Article → Slice Zone*
  *
  */
-type ArticleDocumentDataSlicesSlice = ImageSlice | QuoteSlice | TextSlice | MenuItemSlice;
+type ArticleDocumentDataSlicesSlice = ImageSlice | QuoteSlice | TextSlice | MenuItemSlice | WeeklySpecialsSlice;
 /**
  * Article document from Prismic
  *
@@ -338,7 +338,7 @@ interface SettingsDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    profilePicture: prismicT.ImageField<never>;
+    profilePicture: prismicT.ImageField<"mobile" | "tablet">;
     /**
      * Article Listing Page field in *Settings*
      *
@@ -382,7 +382,7 @@ interface SettingsDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    homepage_hero: prismicT.ImageField<never>;
+    homepage_hero: prismicT.ImageField<"tablet" | "mobile">;
 }
 /**
  * Settings document from Prismic
@@ -744,11 +744,106 @@ type TextSliceVariation = TextSliceDefault;
  *
  */
 export type TextSlice = prismicT.SharedSlice<"text", TextSliceVariation>;
+/**
+ * Primary content in WeeklySpecials → Primary
+ *
+ */
+interface WeeklySpecialsSliceDefaultPrimary {
+    /**
+     * Title Override field in *WeeklySpecials → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: weekly_specials.primary.title_override
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_override: prismicT.KeyTextField;
+    /**
+     * Intro Override field in *WeeklySpecials → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: weekly_specials.primary.intro_override
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    intro_override: prismicT.KeyTextField;
+}
+/**
+ * Item in WeeklySpecials → Items
+ *
+ */
+export interface WeeklySpecialsSliceDefaultItem {
+    /**
+     * Day field in *WeeklySpecials → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: Thursday
+     * - **API ID Path**: weekly_specials.items[].day
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    day: prismicT.KeyTextField;
+    /**
+     * Offer field in *WeeklySpecials → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: Parma and Pot
+     * - **API ID Path**: weekly_specials.items[].offer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    offer: prismicT.KeyTextField;
+    /**
+     * Price field in *WeeklySpecials → Items*
+     *
+     * - **Field Type**: Number
+     * - **Placeholder**: 20
+     * - **API ID Path**: weekly_specials.items[].price
+     * - **Documentation**: https://prismic.io/docs/core-concepts/number
+     *
+     */
+    price: prismicT.NumberField;
+    /**
+     * Description field in *WeeklySpecials → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Choose from a selection etc...
+     * - **API ID Path**: weekly_specials.items[].description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for WeeklySpecials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `WeeklySpecials`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type WeeklySpecialsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<WeeklySpecialsSliceDefaultPrimary>, Simplify<WeeklySpecialsSliceDefaultItem>>;
+/**
+ * Slice variation for *WeeklySpecials*
+ *
+ */
+type WeeklySpecialsSliceVariation = WeeklySpecialsSliceDefault;
+/**
+ * WeeklySpecials Shared Slice
+ *
+ * - **API ID**: `weekly_specials`
+ * - **Description**: `WeeklySpecials`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type WeeklySpecialsSlice = prismicT.SharedSlice<"weekly_specials", WeeklySpecialsSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, AuthorDocumentData, AuthorDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ArticleListSliceDefaultPrimary, ArticleListSliceDefault, ArticleListSliceVariation, ArticleListSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, MenuItemSliceDefaultPrimary, MenuItemSliceDefaultItem, MenuItemSliceDefault, MenuItemSliceVariation, MenuItemSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
+        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, AuthorDocumentData, AuthorDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ArticleListSliceDefaultPrimary, ArticleListSliceDefault, ArticleListSliceVariation, ArticleListSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, MenuItemSliceDefaultPrimary, MenuItemSliceDefaultItem, MenuItemSliceDefault, MenuItemSliceVariation, MenuItemSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WeeklySpecialsSliceDefaultPrimary, WeeklySpecialsSliceDefaultItem, WeeklySpecialsSliceDefault, WeeklySpecialsSliceVariation, WeeklySpecialsSlice };
     }
 }
