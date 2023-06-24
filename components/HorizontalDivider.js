@@ -5,7 +5,7 @@ const Hr = styled.hr((props) => ({
   height: 5,
   margin: "0 auto 1rem",
   maxWidth: props.theme.layout.maxWidthSm,
-  position: 'relative',
+  position: "relative",
   width: props.width ?? "50%",
   ...props.styles,
 }));

@@ -4,7 +4,7 @@ const Para = styled.p((props) => ({
   marginBlockEnd: props.theme.spacers.sm,
   fontFamily: props.theme.fonts.serif,
   fontWeight: 300,
-  lineHeight: 1.5,
+  lineHeight: 1.75,
   fontSize: props.theme.sizes.sm,
   ...props.styles,
 

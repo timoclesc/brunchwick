@@ -83,7 +83,7 @@ export const richTextComponents = {
       field={node.data}
       style={{
         paddingBlockEnd: "0.125rem",
-        borderBottom: "1px solid black",
+        borderBottom: "1px solid currentColor",
       }}
     >
       {children}

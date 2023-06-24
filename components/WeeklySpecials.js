@@ -75,55 +75,66 @@ export const WeeklySpecials = ({ slice }) => {
   const { title_override: title, intro_override: intro } = slice.primary;
   const theme = useTheme();
 
-
-  return (
-    slice.items.length > 0 ?
-      <Outer>
-        <TitleBox>
-          <Border />
-          <div>
-            <Heading as={'h2'} level={2} styles={{ color: 'inherit', fontSize: '2.5rem', fontWeight: '300' }}>
-              {title || <>Weekly <em>Specials</em></>}
-            </Heading>
-            {intro ? <RichText field={intro} /> : <Paragraph styles={{ fontSize: 'inherit' }}>Time your visit to take advantage of these generous offers</Paragraph>}
-          </div>
-        </TitleBox>
-        <SpecialsBox>
-          <BrandShape
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              color: theme.lightTheme.cardBackground,
-            }}
-          />
-          <List>
-            {slice.items.map(
-              item => (
-                <ListItem key={item.id}>
-                  {
-                    item.price ?
-                      <Heading as="p" level={3} styles={{ marginBottom: '0.25rem' }}>
-                        {item.day}
-                      </Heading> : null
-                  }
-                  {
-                    item.offer ?
-                      <Heading as={'p'} level={2} styles={{ marginBottom: '0.5rem' }}>
-                        {item.offer}
-                      </Heading> : null
-                  }
-                  {item.price ? <Paragraph><Currency amount={item.price} /></Paragraph> : null}
-                  <RichText
-                    field={item.description}
-                  />
-                </ListItem>
-              )
+  return slice.items.length > 0 ? (
+    <Outer>
+      <TitleBox>
+        <Border />
+        <div>
+          <Heading
+            as={"h2"}
+            level={2}
+            styles={{ color: "inherit", fontSize: "2.5rem", fontWeight: "300" }}
+          >
+            {title || (
+              <>
+                Weekly <em>Specials</em>
+              </>
             )}
-          </List>
-        </SpecialsBox>
-      </Outer >
-      : <></>
+          </Heading>
+          {intro ? (
+            <RichText field={intro} />
+          ) : (
+            <Paragraph styles={{ fontSize: "inherit" }}>
+              Time your visit to take advantage of these generous offers
+            </Paragraph>
+          )}
+        </div>
+      </TitleBox>
+      <SpecialsBox>
+        <BrandShape
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            color: theme.lightTheme.cardBackground,
+          }}
+        />
+        <List>
+          {slice.items.map((item) => (
+            <ListItem key={item.id}>
+              {item.price ? (
+                <Heading as="p" level={3} styles={{ marginBottom: "0.25rem" }}>
+                  {item.day}
+                </Heading>
+              ) : null}
+              {item.offer ? (
+                <Heading as={"p"} level={2} styles={{ marginBottom: "0.5rem" }}>
+                  {item.offer}
+                </Heading>
+              ) : null}
+              {item.price ? (
+                <Paragraph>
+                  <Currency amount={item.price} />
+                </Paragraph>
+              ) : null}
+              <RichText field={item.description} />
+            </ListItem>
+          ))}
+        </List>
+      </SpecialsBox>
+    </Outer>
+  ) : (
+    <></>
   );
 };

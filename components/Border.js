@@ -6,7 +6,7 @@ const Outer = styled.div((props) => ({
   position: "absolute",
   inset: "0.5rem",
   zIndex: 2,
-  pointerEvents: 'none',
+  pointerEvents: "none",
   color: props.color || props.theme.lightTheme.accent,
   transition: `transform ${props.theme.animation.duration} ${props.theme.animation.ease}`,
   transform: "rotate(1.5deg)",

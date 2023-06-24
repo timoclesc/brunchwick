@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Bounded } from "../../components/Bounded";
 import { WeeklySpecials as Slice } from "../../components/WeeklySpecials";
 
@@ -13,4 +13,4 @@ const WeeklySpecials = ({ slice }) => (
   </Bounded>
 );
 
-export default WeeklySpecials
+export default WeeklySpecials;
