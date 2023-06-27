@@ -48,9 +48,11 @@ export const Layout = ({
         title={pageTitle}
         defaultTitle={prismicH.asText(settings.data.name)}
         description={description}
-        canonical={`https://brunchwick.club${router.asPath !== '/' ? router.asPath : ''}`}
+        canonical={`https://brunchwick.club${router.asPath !== "/" ? router.asPath : ""
+          }`}
         openGraph={{
-          url: `https://brunchwick.club${router.asPath !== '/' ? router.asPath : ''}`,
+          url: `https://brunchwick.club${router.asPath !== "/" ? router.asPath : ""
+            }`,
           title: pageTitle,
           description: description,
           type: router.asPath.includes("reviews/") ? "article" : "basic",
