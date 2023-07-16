@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Background from "./svg/tag.svg";
+import { PrismicLink } from "@prismicio/react";
 
 const TagContainer = styled.div`
   font-size: 1rem;
@@ -22,9 +23,14 @@ const TextWrapper = styled.span`
   z-index: 2;
 `;
 
-export const Tag = ({ children }) => (
-  <TagContainer>
-    <Background />
-    <TextWrapper>{children}</TextWrapper>
-  </TagContainer>
-);
+export const Tag = ({ children }) => {
+  return (
+    <TagContainer>
+      {/* TODO: Make this so it isn't hardcoded */}
+      <PrismicLink href={`/reviews/?tag=${children}`} tabIndex="-1">
+        <Background />
+        <TextWrapper>{children}</TextWrapper>
+      </PrismicLink>
+    </TagContainer>
+  );
+};

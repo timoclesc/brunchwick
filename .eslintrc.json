@@ -1,7 +1,16 @@
 {
-  "extends": ["next/core-web-vitals", "eslint:recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:storybook/recommended"
+  ],
   "rules": {
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ]
   },
   "ignorePatterns": [".slicemachine/"]
 }

@@ -6,7 +6,7 @@ const Outer = styled.div((props) => ({
 }));
 
 const Inner = styled.div((props) => {
-  var maxWidth;
+  let maxWidth;
 
   switch (props.size) {
     case "fullbleed":

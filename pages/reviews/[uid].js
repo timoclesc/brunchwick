@@ -43,7 +43,7 @@ const ArticlePage = ({
     >
       <AuthorProvider authors={authors}>
         <article>
-          <Banner title={article.data.title} date={date} />
+          <Banner title={article.data.title} date={date} tags={article.tags} />
           <Bounded wrapperStyles={{ paddingBlock: 0 }}>
             <ContactInfo
               googleMaps={article.data.google_maps}
@@ -123,7 +123,7 @@ export async function getStaticPaths() {
   const articles = await client.getAllByType("article");
 
   return {
-    paths: articles.map((article) => prismicH.asLink(article)),
+    paths: [...articles.map((article) => prismicH.asLink(article))],
     fallback: false,
   };
 }

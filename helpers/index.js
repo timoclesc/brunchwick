@@ -1,4 +1,5 @@
 import * as prismicH from "@prismicio/helpers";
+import slugify from "slugify";
 
 export const getAverageRating = (slices) => {
   const ratingSlices = slices.find((slice) => slice.slice_type === "menu_item");
@@ -54,3 +55,5 @@ export const getExcerpt = (slices) => {
     return excerpt;
   }
 };
+
+export const makeSlug = (text) => slugify(text, { lower: true, strict: true });

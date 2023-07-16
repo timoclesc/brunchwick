@@ -13,7 +13,9 @@
     "slicemachine": "start-slicemachine",
     "format": "prettier --write .",
     "gen": "prismic-ts-codegen",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@next/font": "13.1.1",
@@ -36,15 +38,26 @@
     "prismic-ts-codegen": "^0.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "slugify": "^1.6.6",
     "styled-components": "^5.3.6",
     "typescript": "4.9.4"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.7",
+    "@storybook/addon-essentials": "^7.0.27",
+    "@storybook/addon-interactions": "^7.0.27",
+    "@storybook/addon-links": "^7.0.27",
+    "@storybook/addon-styling": "^1.3.4",
+    "@storybook/blocks": "^7.0.27",
+    "@storybook/nextjs": "^7.0.27",
+    "@storybook/react": "^7.0.27",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@svgr/webpack": "^6.5.1",
     "babel-plugin-styled-components": "^2.0.7",
+    "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
     "slice-machine-ui": "^0.6.1",
+    "storybook": "^7.0.27",
     "stylelint": "^14.16.1",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-styled-components": "^0.1.1",

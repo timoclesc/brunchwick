@@ -3,11 +3,12 @@ import React from "react";
 import styled from "styled-components";
 
 import { useReview } from "../../hooks/UseReviews";
-import { ArticleList as List } from "../../components/ArticleList";
-import { Article } from "../../components/Article";
-import { RichText } from "../../components/RichText";
-import { Bounded } from "../../components/Bounded";
-import { Paragraph } from "../../components/Paragraph";
+import { Article } from "@/components/Article";
+import { ArticleList as List } from "@/components/ArticleList";
+import { Bounded } from "@/components/Bounded";
+import { Paragraph } from "@/components/Paragraph";
+import { RichText } from "@/components/RichText";
+import { useSearchParams } from "next/navigation";
 
 const CopyContainer = styled.div`
   grid-column: 1 / -1;
@@ -21,6 +22,9 @@ const CopyContainer = styled.div`
  */
 const ArticleList = ({ slice }) => {
   const { reviews } = useReview();
+  const searchParams = useSearchParams();
+
+  const tag = searchParams.get("tag");
 
   return (
     <Bounded as="section" size="widest">
@@ -32,13 +36,15 @@ const ArticleList = ({ slice }) => {
       </CopyContainer>
       <List>
         {reviews.length > 0 ? (
-          reviews.map((article, index) => (
-            <Article
-              key={article.id}
-              article={article}
-              layout={[1, 3].includes(index % 6) ? "vertical" : "horizontal"}
-            />
-          ))
+          reviews
+            .filter((article) => (tag && article.tags.includes(tag)) ?? true)
+            .map((article, index) => (
+              <Article
+                key={article.id}
+                article={article}
+                layout={[1, 3].includes(index % 6) ? "vertical" : "horizontal"}
+              />
+            ))
         ) : (
           <Paragraph>
             {"Uh oh, it doesn't seem like we've got any reviews at the moment."}

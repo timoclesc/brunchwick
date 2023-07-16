@@ -6,8 +6,8 @@ import { components } from "../slices";
 import { Layout } from "@/components/Layout";
 import { Bounded } from "@/components/Bounded";
 import { FeatureText } from "@/components/FeatureText";
-import { AuthorProvider } from "../hooks/UseAuthors";
-import { ReviewProvider } from "../hooks/UseReviews";
+import { AuthorProvider } from "@/hooks/UseAuthors";
+import { ReviewProvider } from "@/hooks/UseReviews";
 import { getExcerpt } from "helpers";
 
 const Page = ({ page, navigation, settings, authors, reviews }) => {
